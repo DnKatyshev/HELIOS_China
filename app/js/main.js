@@ -1,9 +1,9 @@
 // GSAP-ANIMATION
 let tl = gsap.timeline()
 tl
-    .from('.logo',{opacity: 0, xPercent: -100,  duration: 0.6})
+    .from('.logo',{autoAlpha: 0, xPercent: -100,  duration: 0.6})
     .from('.header__menu-li', {
-        opacity: 0, yPercent: -100,  duration: 0.6, stagger: 0.2}, '+=0.3')
+      autoAlpha: 0, yPercent: -100,  duration: 0.6, stagger: 0.2}, '+=0.3')
     .from('.header__menu-line',{width: 0,  duration: 1.5}, '+-0.2')
 
 

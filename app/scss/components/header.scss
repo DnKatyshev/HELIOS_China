@@ -1,0 +1,213 @@
+@import '../base.scss';
+
+// ------ SECTION-TITLE ------
+.section__title-block {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 40px 0;
+    &::after{
+        content: "";
+        position: absolute;
+        top: 68px;
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: #222222;
+        opacity: .2;
+    }
+}
+.section__title {
+    font-size: clamp(24px, 3vw, 40px);
+}
+.section__subtitle {
+    font-size: 14px;
+}
+// @media(max-width: 900px){
+//     .section__title-block {
+//         margin-bottom: 30px;
+//     }
+// }
+
+// SECOND TITLE
+.second-title-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 8px;
+}
+.second-title {
+    
+}
+.second-subtitle {
+}
+// ------ SECTION-TITLE ------
+
+
+
+.container{
+    max-width: 1470px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+section{
+    position: relative;
+    padding: 70px 0;
+    @media(max-width: 900px){
+        &{
+            padding: 50px 0;
+        }
+    }
+}
+.btn{
+    display: inline-block;
+    width: 100%;
+    border-radius: 12px;
+    text-align: center;
+    transition: all .4s ease;
+    &:hover{
+        transform: translateY(-6px);
+    }
+}
+.dark-svg-contacts svg:hover path{
+    transition: all .2s ease;
+    fill: #373737;
+}
+.logo {
+   &:hover{
+    transform: translateY(-16px);
+   }
+} 
+
+
+// ------------- HEADER -------------
+.header{
+    position: relative;
+    top: 0;
+    left: 0;
+    color:  $DarkBlue;
+    z-index: 1;
+}
+.header__menu {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+    font-weight: 500;
+    &-line{
+        position: absolute;
+        bottom: 0;
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: $DarkBlue;
+    }
+    &-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: 30px;
+    }
+    &-list { 
+        display: flex;
+        align-items: center;
+        column-gap: 24px;
+    }
+    &-li a{
+        color: $DarkBlue; 
+        &:hover{
+            color: #40566d;
+           }
+    } 
+    &-contacts {
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+    }
+    &-btn {
+        max-width: 125px;
+        padding: 16px 25px;
+        margin-left: 30px;
+        color: #fff;
+        background: $DarkBlue;
+    }
+    .menu-burger {
+        display: none;
+    }
+
+    .header__menu-nav-mob{
+        display: none;
+    }
+    
+
+
+    // Burger-Menu
+    @media(max-width: 940px){
+
+        .header__menu-nav{
+            display: none;
+        }
+    
+        .header__menu-nav-mob {
+            position: fixed;
+            left: -100%;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: space-around;
+            width: 100%;
+            height: 100%;
+            padding: 50px;
+            background: #fff;
+            transition: all 0.4s ease;
+            z-index: 1000;
+            overflow: scroll;
+        }
+        .header__menu-nav-mob.active-menu {
+           left: 0;
+        }
+    
+        .header__menu-list-mob{
+            display: flex;
+            flex-direction: column;
+            row-gap: 56px;
+            padding-top: 70px;
+        }
+        .header__menu-li-mob a{
+            color: $DarkBlue;
+            font-size: 18px;
+        }
+    
+        .header__menu-contacts-mob {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 100%;
+            margin-top: auto;
+            &:first-child{
+                border-bottom: 1px solid $DarkBlue;
+            }
+        }
+        .header__menu-btn-mob{
+            max-width: 280px;
+            padding: 16px 25px;
+            margin: 25px auto 0 auto;
+            background: $DarkBlue;
+            color: #fff;
+            transition: all .5s ease;
+        }
+    
+        .menu-burger{
+            position: absolute;
+            right: 0; 
+            display: block;
+        }
+    
+    }
+
+}

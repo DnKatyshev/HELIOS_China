@@ -29,7 +29,7 @@ section{
     fill: #373737;
 }
 .logo {
-    transition: all .5s ease;
+    transition: all .4s ease;
    &:hover{
     transform: translateY(-6px);
    }
@@ -174,11 +174,12 @@ section{
         .header__menu-list-mob{
             display: flex;
             flex-direction: column;
-            row-gap: 48px;
+            row-gap: 56px;
             padding-top: 70px;
         }
         .header__menu-li-mob a{
             color: $DarkBlue;
+            font-size: 18px;
         }
     
         .header__menu-contacts-mob {
@@ -254,6 +255,8 @@ section{
     margin-top: 60px;
 }
 .layout__swiper {
+    position: relative;
+    z-index: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -496,7 +499,9 @@ section{
 // -------- ADVANTAGES --------
 .advantages{
     background: #EEF7FF;
-
+    .section__title-block::after{
+        display: none;
+    }
     &__block{
         display: grid;
         grid-template: repeat(3, 228px) / repeat(2, 1fr);
@@ -764,16 +769,9 @@ section{
     .trends__title{
         color: #fff;
     }
-    &::after{
-        content: "";
-        position: absolute;
-        top: 68px;
-        display: block;
-        width: 100%;
-        height: 1px;
-        background-color: #ffffff;
-        opacity: .4;
-    }
+        &::after{
+            display: none;
+        }
 }
 .trends__title-btn,
 .trends__title-btn-mobile{

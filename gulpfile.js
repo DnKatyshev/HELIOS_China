@@ -1,30 +1,62 @@
-const {src, dest} = require('gulp'),
+const {src, dest} = require('gulp');
 
-gulp = require('gulp'),  // подключаем Gulp через require
-include = require('gulp-include'),  // сборка HTML (header, footer..)
-sass = require('gulp-sass')(require('sass')), // подключаем плагин для компиляции scss
-sourceMaps = require('gulp-sourcemaps'),  // нахождение строк в dev-tools
+gulp = require('gulp'), // подключаем Gulp через require
+include = require('gulp-include'), // сборка HTML (header, footer..)
+sass = require('gulp-sass')(require('sass')), // плагин для компиляции scss
+sourceMaps = require('gulp-sourcemaps'), // нахождение строк в dev-tools
 
-uglify = require('gulp-uglify-es').default,  // плагин для сжатия JS файлов
-concat = require('gulp-concat'),  // подключаем плагин для переименования файлов
-cleancss = require('gulp-clean-css'), // типо убирает комментарии в стилях
+uglify = require('gulp-uglify-es').default, // плагин для сжатия JS файлов
+concat = require('gulp-concat'), // плагин для переименования файлов
+cleancss = require('gulp-clean-css'), // убирает комментарии в стилях
+// autoprefixer = require('gulp-autoprefixer'),
 
 // IMAGES
-imageMin = require('gulp-imagemin'),  // сжатие картинок + в новые форматы
+imageMin = require('gulp-imagemin'), // сжатие картинок + в новые форматы
 webp = require('gulp-webp'),
-changed = require('gulp-changed'),  // чтобы плагины применялись только к новым файлам 
+changed = require('gulp-changed'), // чтобы плагины применялись только к новым файлам
 webhtml = require('gulp-webp-html'),
 webcss = require('gulp-webp-css'),
 // FONTS
 fonter = require('gulp-fonter'),
 ttf2woff2 = require('gulp-ttf2woff2'),
 
-// Сервер
-server = require('gulp-server-livereload'), // подключаем сервер и автообновление
-
-clean = require('gulp-clean'),  // возмож-сть удаления папки dist, работа с файл.сист
+// browserSync = require('browser-sync').create(),
+clean = require('gulp-clean'), // возмож-сть удаления папки dist, работа с файл.сист
 fs = require('fs')
 
+// import gulp from 'gulp'; // подключаем Gulp через require
+// import include from 'gulp-include'; // сборка HTML (header, footer..)
+// import sass from 'gulp-sass'; // плагин для компиляции scss
+// import sourceMaps from 'gulp-sourcemaps'; // нахождение строк в dev-tools
+
+// import uglify from 'gulp-uglify-es'; // плагин для сжатия JS файлов
+// import concat from 'gulp-concat'; // плагин для переименования файлов
+// import cleancss from 'gulp-clean-css'; // убирает комментарии в стилях
+// import autoprefixer from 'gulp-autoprefixer';
+
+// // IMAGES
+// import imageMin from 'gulp-imagemin';  // сжатие картинок + в новые форматы
+// import webp from 'gulp-webp';
+// import changed from 'gulp-changed'; // чтобы плагины применялись только к новым файлам 
+// import webhtml from 'gulp-webp-html';
+// import webcss from 'gulp-webp-css';
+
+// // FONTS
+// import fonter from 'gulp-fonter';
+// import ttf2woff2 from 'gulp-ttf2woff2';
+
+// import clean from 'gulp-clean'; // возмож-сть удаления папки dist, работа с файл.сист
+
+// function browserSync(){
+//     browserSync({
+//         server: {
+//           baseDir: "app/"
+//         },
+//         port: 8080,
+//         open: true,
+//         notify: false
+//       });
+// }
 
 function images(){
     return src('app/images/**/*')
@@ -40,9 +72,9 @@ function images(){
 }
 
 function html(){
-    return src('app/*.html')
+    return src('app/**/*.html')
     .pipe(include({
-        includePaths: 'app/components/'
+        includePaths: 'dist'
     }))
     .pipe(webhtml())
     .pipe(dest('dist'))
@@ -54,28 +86,37 @@ function style(){
     .pipe(sourceMaps.init())
     .pipe(sass({outputStyle: 'compressed'}))  
     .pipe(cleancss( {level: { 1: { specialComments: 0 } } }))
-    .pipe(sourceMaps.write())
     .pipe(concat('base.css'))
     .pipe(webcss())
+    .pipe(sourceMaps.write('.'))
     .pipe(dest('dist/css')) 
+    // .pipe(browserSync.reload({
+    //     stream: true
+    //   }))
 }
 function style2(){
     return src('app/scss/pages/*.scss')  
     .pipe(sourceMaps.init())
     .pipe(sass({outputStyle: 'compressed'}))  
     .pipe(cleancss( {level: { 1: { specialComments: 0 } } }))
-    .pipe(sourceMaps.write())
     .pipe(webcss())
+    .pipe(sourceMaps.write('.'))
     .pipe(dest('dist/css/pages-style')) 
+    // .pipe(browserSync.reload({
+    //     stream: true
+    //   }))
 }
 function style3(){
     return src('app/scss/components/*.scss')  
     .pipe(sourceMaps.init())
     .pipe(sass({outputStyle: 'compressed'}))  
     .pipe(cleancss( {level: { 1: { specialComments: 0 } } }))
-    .pipe(sourceMaps.write())
     .pipe(webcss())
-    .pipe(dest('dist/css/components-style')) 
+    .pipe(sourceMaps.write('.'))
+    .pipe(dest('dist/css/components')) 
+    // .pipe(browserSync.reload({
+    //     stream: true
+    //   }))
 }
 // Функции для компиляции стилей
 
@@ -115,12 +156,9 @@ function cleaner(done){
     done()
 }
 
-function watching(){   // Таск для авто-обновления всех тасков
+function watching(){   
     gulp.watch(['app/*.html', 'app/components/*.html'], html)
-    gulp.watch(['app/scss/**/*.scss'], gulp.series(style, style2, style3))
-    // gulp.watch(['app/scss/*.scss'], style)
-    // gulp.watch(['app/scss/pages/*.scss'], style2)
-    // gulp.watch(['app/scss/componets/*.scss'], style3)
+    gulp.watch(['app/scss/**/*.scss'], gulp.series(style, style2, style3)) //,browserSync
     gulp.watch(['app/img/**/*'], images)
     gulp.watch(['app/js/**/*.js'], minjs)
     gulp.watch(['app/fonts/*'], fonts)
@@ -131,6 +169,7 @@ exports.style = style
 exports.style2 = style2
 exports.style3 = style3
 exports.minjs = minjs
+// exports.browserSync = browserSync
 exports.extraJS = extraJS
 exports.images = images
 exports.fonts = fonts
@@ -139,6 +178,7 @@ exports.cleaner = cleaner
 exports.watching = watching
 
 exports.default = gulp.series(
+    // browserSync,
     cleaner,
     gulp.parallel(html, style, style2, style3, minjs, extraJS, images, fonts), 
     gulp.parallel(watching)

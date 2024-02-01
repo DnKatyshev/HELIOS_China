@@ -1,0 +1,143 @@
+@import '../base.scss';
+// -------- TRENDS --------
+
+.trends{
+    background: $DarkBlue;
+    padding: 64px 0;
+}
+.trends__title-block{
+    .trends__title{
+        color: #fff;
+    }
+        &::after{
+            display: none;
+        }
+}
+.trends__title-btn,
+.trends__title-btn-mobile{
+    position: relative;
+    max-width: 240px;
+    padding: 14px 24px;
+    color: $DarkBlue;
+    background: #fff;
+    z-index: 2;
+}
+.trends__title-btn-mobile{
+    display: none;
+}
+
+
+.trends__content{
+    position: relative;
+    display: grid;
+    grid-template: repeat(12, auto) / repeat(4, 1fr);
+    gap: 16px;
+    color: #fff;
+    transition: all .5s ease;
+}
+.trends__item{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 16px;
+    padding: 6px;
+
+    &:nth-child(1){
+        grid-column: span 2;
+        grid-row: 1/5;
+    }
+    &:nth-child(2){
+        grid-column: span 1;
+        grid-row: 1/4;
+    }
+    &:nth-child(3){
+        grid-column: span 1;
+        grid-row: 1/4;
+    }
+    &:nth-child(4){
+        grid-column: span 2;
+        grid-row: 5/9;
+    }
+    &:nth-child(5){
+        grid-column: span 1;
+        grid-row: 4/7;
+    }
+    &:nth-child(6){
+        grid-column: span 1;
+        grid-row: 4/7;
+    }
+    &:nth-child(7){
+        grid-column: span 2;
+        grid-row: 9/13;
+    }
+    &:nth-child(8){
+        grid-column: span 1;
+        grid-row: 7/10;
+    }
+    &:nth-child(9){
+        grid-column: span 1;
+        grid-row: 7/10;
+    }
+    &:nth-child(10){
+        grid-column: span 1;
+        grid-row: 10/13;
+    }
+    &:nth-child(11){
+        grid-column: span 1;
+        grid-row: 10/13;
+    }
+
+    .trends__product-img{
+        width: 100%;
+        min-height: 140px;
+        object-fit: cover;
+        border-radius: 30px;
+    }
+    &-numbers{
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+    }
+    &-title{
+        font-size: 24px;
+        font-weight: 500;
+    }
+    .trends__info{
+        font-size: 13px;
+    }
+    .trends__btn{
+        max-width: 700px;
+        padding: 12px;
+        background: #fff;
+        img{
+            max-width: 60px;
+        }
+    }
+}
+
+@media(max-width: 768px){
+    .trends__content{
+        grid-template: repeat(6, auto) / repeat(2, 1fr);
+    }
+    .trends__item{
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+        &-title{
+            font-size: 16px;
+        }
+        &-numbers{
+            display: none;
+        }
+        .trends__info{
+            display: none;
+        }
+    }
+    .trends__title-btn{
+        display: none;
+    }
+    .trends__title-btn-mobile{
+        display: block;
+        margin: 40px auto 0 auto;
+        bottom: 20px;
+    }
+}
