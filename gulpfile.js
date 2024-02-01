@@ -140,7 +140,7 @@ function watching(){
             baseDir: "./dist"
         }
     });
-    gulp.watch(('dist/*.html', 'dist/components/*.html').on('change', browserSync.reload))
+    // gulp.watch(('dist/*.html', 'dist/components/*.html').on('change', browserSync.reload))
     gulp.watch(['app/*.html', 'app/components/*.html'], html)
     gulp.watch(['app/scss/**/*.scss'], gulp.series(style, style2, style3)) //,browserSync
     gulp.watch(['app/imgages/**/*'], images)
