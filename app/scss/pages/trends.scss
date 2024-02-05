@@ -4,9 +4,12 @@
 .trends{
     background: $DarkBlue;
     padding: 64px 0;
+    margin-top: 40px;
 }
 .trends__title-block{
-    .trends__title{
+    margin-bottom: 40px;
+    .trends__title,
+    .trends__subtitle{
         color: #fff;
     }
         &::after{
@@ -15,7 +18,7 @@
 }
 .trends__title-btn,
 .trends__title-btn-mobile{
-    position: relative;
+    position: relative; 
     max-width: 240px;
     padding: 14px 24px;
     color: $DarkBlue;

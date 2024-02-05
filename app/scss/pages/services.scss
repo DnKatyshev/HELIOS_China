@@ -1,0 +1,83 @@
+@import '../base.scss';
+
+
+
+// ----------- EXPORT/IMPORT/PROVIDERS -----------
+
+.services__body {
+    display: grid;
+    grid-template: repeat(3, auto) / repeat(1, 100%);
+    gap: 20px;
+}
+.services__item{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    padding: 30px;
+    border-radius: 15px;
+    color: #fff;
+    picture{
+        height: 100%;
+    }
+    img{
+        width: clamp(300px, 40vw, 650px);
+        height: 100%;
+        object-fit: cover;
+        border-radius: 60px;
+        padding: 0 15px;
+    }
+
+    .services__content{
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        max-width: 360px;
+    }
+    .services__content:nth-child(1) {
+        flex-direction: column;
+    }
+
+    .services__text{
+        display: flex;
+        flex-direction: column;
+        row-gap: 15px;
+    }
+
+    .services__subtitle {
+        font-size: 24px;
+        font-weight: 500;
+    }
+    .services__btn {
+        max-width: 135px;
+        padding: 14px 25px;
+        color: $DarkBlue;
+        background: #fff;
+        transition: all .3s ease-in-out;
+        &:hover{
+            transform: translateY(-6px);
+        }
+    }
+
+    &--orange{
+        background: $Orange;
+    }
+    &--blue{
+        background: $Azure;
+    }
+    &--red{
+        background: $Red;
+    }
+
+    @media(max-width: 700px){
+        &{
+            flex-direction: column;
+        }
+        .services__btn{
+            max-width: 100%;
+        }
+    }
+}
+
+

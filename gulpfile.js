@@ -1,7 +1,7 @@
 const {src, dest} = require('gulp'),
 
 gulp = require('gulp'), // подключаем Gulp через require
-include = require('gulp-include'), // сборка HTML (header, footer..)
+fileInclude = require('gulp-file-include'), // сборка HTML (header, footer..)
 sass = require('gulp-sass')(require('sass')), // плагин для компиляции scss
 sourceMaps = require('gulp-sourcemaps'), // нахождение строк в dev-tools
 
@@ -15,13 +15,12 @@ webp = require('gulp-webp'),
 changed = require('gulp-changed'), // чтобы плагины применялись только к новым файлам
 webhtml = require('gulp-webp-html'),
 webcss = require('gulp-webp-css'),
+del = require('del'),
 // FONTS
 fonter = require('gulp-fonter'),
 ttf2woff2 = require('gulp-ttf2woff2'),
 
-browserSync = require('browser-sync').create(),
-clean = require('gulp-clean'), // возмож-сть удаления папки dist, работа с файл.сист
-fs = require('fs')
+browserSync = require('browser-sync').create()
 
 // import gulp from 'gulp'; // подключаем Gulp через require
 // import include from 'gulp-include'; // сборка HTML (header, footer..)
@@ -57,13 +56,17 @@ function images(){
     .pipe(imageMin({verbose: true}))
 
     .pipe(dest('dist/images/'))
+}
 
+function clean(){
+    return del(['dist'])
 }
 
 function html(){
-    return src('app/**/*.html')
-    .pipe(include({
-        includePaths: 'dist'
+    return src('app/*.html')
+    .pipe(fileInclude({
+        prefix: '@',
+        basepath: '@file'
     }))
     .pipe(webhtml())
     .pipe(dest('dist'))
@@ -106,15 +109,10 @@ function style3(){
 
 
 function minjs(){
-    return src('app/js/*.js')
+    return src('app/js/**/*.js')
     .pipe(uglify())
-    .pipe(concat('main.min.js'))
     .pipe(dest('dist/js'))
     .pipe(browserSync.stream());
-}
-function extraJS(){
-    return src('app/js/js-extra-settings/*.js')
-    .pipe(dest('dist//js/js-extra-settings'))
 }
 
 function fonts(){
@@ -125,12 +123,6 @@ function fonts(){
     .pipe(dest('dist/fonts'))
 }
 
-function cleaner(done){
-    if (fs.existsSync('dist/')){  // Таск для удаления папки dist
-        return src('dist',{read: false}).pipe(clean())
-    }
-    done()
-}
 
 
 
@@ -140,10 +132,9 @@ function watching(){
             baseDir: "./dist"
         }
     });
-    // gulp.watch(('dist/*.html', 'dist/components/*.html').on('change', browserSync.reload))
-    gulp.watch(['app/*.html', 'app/components/*.html'], html)
-    gulp.watch(['app/scss/**/*.scss'], gulp.series(style, style2, style3)) //,browserSync
-    gulp.watch(['app/imgages/**/*'], images)
+    gulp.watch(['app/**/*.html'], html)
+    gulp.watch(['app/scss/**/*.scss'], gulp.series(style, style2, style3))
+    gulp.watch(['app/images/**/*'], images)
     gulp.watch(['app/js/**/*.js'], minjs)
     gulp.watch(['app/fonts/*'], fonts)
 }
@@ -153,15 +144,14 @@ exports.style = style
 exports.style2 = style2
 exports.style3 = style3
 exports.minjs = minjs
-exports.extraJS = extraJS
 exports.images = images
 exports.fonts = fonts
-exports.cleaner = cleaner
+exports.clean = clean
 exports.watching = watching
 
 exports.default = gulp.series(
-    cleaner,
-    gulp.parallel(html, style, style2, style3, minjs, extraJS, images, fonts), 
+    clean,
+    gulp.parallel(html, style, style2, style3, minjs, images, fonts), 
     gulp.parallel(watching)
 )
 

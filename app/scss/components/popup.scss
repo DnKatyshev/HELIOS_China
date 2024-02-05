@@ -1,0 +1,131 @@
+@import '../base.scss';
+
+// ================ Попап ================
+.popup-overlay {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%; 
+	background: rgba(40, 56, 73, .5);
+	backdrop-filter: blur(1px);
+	transition: all 0.3s ease;
+	z-index: 1000;
+	opacity: 0;
+	visibility: hidden;
+
+	.popup-main { 
+		position: relative;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+        max-width: 600px;
+        color: $DarkBlue;
+        row-gap: 22px;
+        padding: 0 15px;
+        &__title{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            column-gap: 50px;
+            h3{
+                font-size: 24px;
+            }
+            img{
+                max-height: 125px;
+            }
+        }
+        &__block{
+            display: flex;
+            flex-direction: column;
+            row-gap: 32px;
+            background: #fff;
+            border-radius: 22px 22px 0 0;
+            padding: 10px 20px;
+        }
+        &__company,
+        &__made{
+            display: flex;
+            flex-direction: column;
+            row-gap: 20px;
+            h5{
+                font-family: $Inter;
+                font-size: 20px;
+            }
+            p{
+                font-family: $Inter;
+            }
+        }
+
+        &__connection{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            column-gap: 40px;
+            background: $Green;
+            color: #fff;
+            border-radius: 0 0 22px 22px;
+            padding: 10px 20px;
+            p{
+                font-size: 18px;
+                font-weight: 600;
+            }
+            a{
+                color: $DarkBlue;
+            }
+        }
+        &__btn{
+            max-width: 125px;
+            background: #fff;
+            padding: 13px 24px;
+        }
+
+        @media(max-width: 768px){
+            &__title,
+            &__connection{
+                flex-direction: column;
+                row-gap: 20px;
+            }
+
+            &__btn{
+                max-width: 100%;
+            }
+        }
+
+	}
+
+	&.active {
+		opacity: 1;
+		visibility: visible;
+	}
+
+}
+
+@media(max-width: 768px){
+
+    .popup-overlay__cross {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        top: 5px;
+        right: 22px;
+    
+        & span {
+            top: 50%;
+            height: 2px;
+            width: inherit;
+            position: absolute;
+            background: rgba(0, 255, 157, 0.7);
+            transition: all 0.5s ease 0s;
+        }
+    
+        & span:first-child {
+            transform: rotate(45deg);
+        }
+    
+        & span:last-child {
+            transform: rotate(-45deg);
+        }
+    }
+
+}

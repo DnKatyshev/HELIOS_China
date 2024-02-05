@@ -13,7 +13,7 @@ section{
             padding: 50px 0;
         }
     }
-}
+} 
 .btn{
     display: inline-block;
     width: 100%;
@@ -88,7 +88,7 @@ section{
     top: 0;
     left: 0;
     color: #fff;
-    z-index: 1;
+    z-index: 2;
 }
 .header__menu {
     position: relative;
@@ -101,7 +101,7 @@ section{
         position: absolute;
         bottom: 0;
         display: block;
-        width: 100%;
+        width: 0%;
         height: 1px;
         background-color: #dfdfdf;
     }
@@ -118,9 +118,14 @@ section{
     }
     &-li a{
         color: #fff; 
+        transition: all .2s ease;
         &:hover{
             color: #ffebeb;
            }
+        &:hover path{
+            transition: all .2s ease;
+            fill: #ffebeb;
+        }
     } 
     &-contacts {
         display: flex;
@@ -161,7 +166,7 @@ section{
             justify-content: space-around;
             width: 100%;
             height: 100%;
-            padding: 50px;
+            padding: 40px;
             background: #fff;
             transition: all 0.4s ease;
             z-index: 1000;
@@ -679,6 +684,14 @@ section{
     color: #fff;
     background: $DarkBlue;
 }
+.partners__title-btn-mob{
+    display: none;
+    max-width: 173px;
+    padding: 14px 24px;
+    margin: 30px auto 0 auto;
+    color: #fff;
+    background: $DarkBlue;
+}
 .partners__block-first{
     margin-bottom: 20px;
 }
@@ -723,6 +736,9 @@ section{
     .partners__title-btn{
         display: none;
     }
+    .partners__title-btn-mob{
+        display: block;
+    }
 }
 
 
@@ -752,7 +768,7 @@ section{
 }
 .trends__body{
     position: relative;
-    &::after{
+    &--shadow{
         content: '';
         position: absolute;
         width: 100%;
@@ -762,6 +778,10 @@ section{
         background: linear-gradient(180deg, rgba(40, 56, 73, 0.00) 66.11%, #283849 100%);
         user-select: none;
         pointer-events: none;
+        transition: all .3s ease;
+    }
+    .shadow-active{
+        visibility: hidden;
     }
 }
 
@@ -794,6 +814,12 @@ section{
     margin: 0 auto;
     border-radius: 50%;
     z-index: 2;
+    & svg path{
+        transition: all .3s ease;
+    }
+    &:hover svg path{
+        fill: pink;
+    }
     @media(max-width: 768px){
         &{
             display: none;
@@ -814,7 +840,7 @@ section{
     max-height: 500px;
     overflow: hidden;
     color: #fff;
-    transition: all .5s ease;
+    transition: all .7s ease;
     &.active-trends{
         max-height: 2200px;
     }
@@ -1039,10 +1065,12 @@ section{
         &::before{
             right: 16px;
             transform: rotate(40deg);
+            transition: all .2s ease-in;
         }
         &::after{
             right: 11px;
             transform: rotate(-40deg);
+            transition: all .2s ease-in;
         }
         &.active-tab-arrow::before{
             right: 16px;
@@ -1202,6 +1230,9 @@ section{
             justify-content: center;
             padding: 0 20px;
         }
+        &__btn{
+            max-width: 100%;
+        }
     }
 }
 
@@ -1222,7 +1253,6 @@ section{
     &__top{
         background: $LightBlue;
         display: flex;
-        column-gap: 24px;
         justify-content: center;
         align-items: center;
         min-height: 120px;
@@ -1247,14 +1277,19 @@ section{
         column-gap: 44px;
         justify-content: center;
         flex-wrap: wrap;
-        .footer__li{
-
+        .footer__li:hover a{
+            color: #8c598f;
+            transition: all .2s ease;
         }
     }
     &__contacts-icon{
         display: flex;
         column-gap: 24px;
         justify-content: center;
+    }
+    &__icon--dark:hover svg path{
+        fill: #3c3b3b;
+        transition: all .2s ease;
     }
 
     @media(max-width: 550px){

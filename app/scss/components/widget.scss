@@ -1,0 +1,75 @@
+@import '../base.scss';
+
+@media(max-width: 769px){
+
+    .widget{
+        position: fixed;
+        top: 70%;
+        right: 15px;
+        z-index: 1;
+        transform: translateY(-70%);
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        &__socials{
+            position: relative;
+            left: 100%;
+            z-index: -1;
+            visibility: hidden;
+            display: flex;
+            column-gap: 14px;
+            align-items: center;
+            padding: 11px;
+            background: linear-gradient(90deg,#f2d2ff,pink);
+            border-radius: 12px 0 0 12px;
+            transition: all .3s ease-in-out;
+            &--active{
+                left: 0;
+                visibility: visible;
+            }
+            svg path{
+                fill: #c0703e;
+            }
+        }
+     
+     
+        &__trigger{
+            position: relative;
+            overflow: hidden;
+            padding: 8px 10px;
+            background: rgba(12, 196, 12, .9);
+            border-radius: 4px;
+            svg path{
+                fill: #fff;
+            }
+
+            .blick{
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 20px;
+        transform: skewX(-45deg); // Наклон
+        animation: blickAnimation;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
+        animation: blickAnimation 3s infinite linear; 
+            }
+            @keyframes blickAnimation {
+                0% {
+                    left: -150%;
+                }
+                100% {
+                    left: 150%;
+                }
+            }
+}
+
+
+
+    }
+
+}  
+@media(min-width: 770px){
+    .widget{ 
+        display: none;
+    }
+} 

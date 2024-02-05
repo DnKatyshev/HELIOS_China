@@ -1,11 +1,18 @@
 // GSAP-ANIMATION
 let tl = gsap.timeline()
-tl
-    .from('.logo',{autoAlpha: 0, xPercent: -100,  duration: 0.6})
-    .from('.header__menu-li', {
-      autoAlpha: 0, yPercent: -100,  duration: 0.6, stagger: 0.2}, '+=0.3')
-    .from('.header__menu-line',{width: 0,  duration: 1.5}, '+-0.2')
+tl.from('header .logo',{autoAlpha: 0, xPercent: -100,  duration: 0.6})
 
+let mq = gsap.matchMedia();
+mq.add("(min-width: 940px)", () => {
+  tl.from('.header__menu-li', {
+    autoAlpha: 0, yPercent: -100,  duration: 0.5, stagger: 0.2}, '+=0.2')
+});
+
+tl
+  .to('.header__menu-line', {duration: .5, width: "100%"}, '+=0.2')
+  .from('.service__text:nth-child(1)', {autoAlpha: .4, yPercent: -30,  duration: 0.6}, '+=.2')
+  .from('.service__title img', {autoAlpha: 0, width: 0,  duration: 0.6}, '+=.3')
+  .from('.service__text:nth-child(3)', {autoAlpha: .4, yPercent: -30,  duration: 0.6}, '+=.2')
 
 // QUESTIONS-TABS
 let questionTabs = document.querySelectorAll('.question__title') 
@@ -63,10 +70,11 @@ const layoutSwiper = new Swiper('#layout-slider', {
 
   autoplay: {
     delay: 2500,
+    pauseOnMouseEnter: true,
   },
 })
 
-// ------ PARTNERS-SLIDERS ------
+// ------ PARTNERS-SLIDERS INDEX.HTML------
 const partnersSwiperFirst = new Swiper('#partners__slider-first', {
 
     navigation: {
@@ -206,8 +214,39 @@ im.mask(formPhone)
             menuOverlay.classList.remove('active-menu')
             document.body.classList.remove('fixed-page')
         })
+        let mobLinks = document.querySelectorAll('[data-mob-link]')
+        mobLinks.forEach((mobLink) => {
+          mobLink.addEventListener('click', (e) => {
+            menuOverlay.classList.remove('active-menu')
+            document.body.classList.remove('fixed-page')
+          })
+        })
         
-        // Раскрытие trends-карточек
+
+// Попап
+let popupButtons = document.querySelectorAll('.popup-btn')
+let popupClose = document.querySelectorAll('.popup-overlay__cross')
+let popupOverlay = document.querySelector('.popup-overlay')
+popupButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        popupOverlay.classList.add('active')
+        document.body.classList.add('fixed-page')
+    })
+})
+popupClose.forEach((clsButton) => {
+    clsButton.addEventListener('click', () => {
+        popupOverlay.classList.remove('active')
+        document.body.classList.remove('fixed-page')
+    })
+})
+document.addEventListener('click', (e) => {
+    if (e.target == popupOverlay) {
+        popupOverlay.classList.remove('active')
+        document.body.classList.remove('fixed-page')
+    } 
+})
+
+        // Раскрытие trends-карточек 
         let hiddenArrow = document.querySelector('.trends-arrows')
         let trendsBlock = document.querySelector('.trends__content')
         let hiddenBtn = document.querySelector('.trends__title-btn-mobile')
@@ -215,7 +254,20 @@ im.mask(formPhone)
         hiddenArrow.addEventListener('click', (e) => {
             trendsBlock.classList.toggle('active-trends')
             e.currentTarget.classList.toggle('active-arrow')
+            document.querySelector('.trends__body--shadow').classList.toggle('shadow-active')
         })
-        hiddenBtn.addEventListener('click', (e) => {
+        hiddenBtn.addEventListener('click', () => {
             trendsBlock.classList.toggle('active-trends')
+            document.querySelector('.trends__body--shadow').classList.toggle('shadow-active')
         })
+ 
+
+// SOCIALS-WIDGET
+let widgetTrigger = document.querySelector('.widget__trigger')
+let widgetIcons = document.querySelector('.widget__socials')
+
+widgetTrigger.addEventListener('click', (e) => {
+  widgetIcons.classList.toggle('widget__socials--active')
+})
+          
+ 
