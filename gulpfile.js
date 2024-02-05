@@ -72,6 +72,10 @@ function html(){
     .pipe(dest('dist'))
     .pipe(browserSync.stream());
 }
+function php(){
+    return src('app/**/*.php')
+    .pipe(dest('dist'))
+}
 
 // Функции для компиляции стилей
 function style(){
@@ -133,12 +137,14 @@ function watching(){
         }
     });
     gulp.watch(['app/**/*.html'], html)
+    gulp.watch(['app/**/*.php'], php)
     gulp.watch(['app/scss/**/*.scss'], gulp.series(style, style2, style3))
     gulp.watch(['app/images/**/*'], images)
     gulp.watch(['app/js/**/*.js'], minjs)
     gulp.watch(['app/fonts/*'], fonts)
 }
 
+exports.php = php
 exports.html = html
 exports.style = style
 exports.style2 = style2
@@ -151,7 +157,7 @@ exports.watching = watching
 
 exports.default = gulp.series(
     clean,
-    gulp.parallel(html, style, style2, style3, minjs, images, fonts), 
+    gulp.parallel(html, php, style, style2, style3, minjs, images, fonts), 
     gulp.parallel(watching)
 )
 
