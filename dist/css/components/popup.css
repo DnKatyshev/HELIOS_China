@@ -164,12 +164,15 @@ header, footer {
   font-size: 24px;
 }
 .popup-overlay .popup-main__title img {
+  display: block;
+  margin: 0 auto;
   max-height: 125px;
+  width: 75%;
 }
 .popup-overlay .popup-main__block {
   display: flex;
   flex-direction: column;
-  row-gap: 32px;
+  row-gap: 16px;
   background: #fff;
   border-radius: 14px 14px 0 0;
   padding: 10px 20px;
@@ -188,9 +191,8 @@ header, footer {
 }
 .popup-overlay .popup-main__connection {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  column-gap: 40px;
+  flex-direction: column;
+  row-gap: 20px;
   background: #30957C;
   color: #fff;
   border-radius: 0 0 14px 14px;
@@ -200,8 +202,11 @@ header, footer {
   font-size: 18px;
   font-weight: 600;
 }
-.popup-overlay .popup-main__connection a {
-  color: #283849;
+.popup-overlay .popup-main__connection .form__form-body {
+  padding: 15px;
+}
+.popup-overlay .popup-main__connection .form__btn {
+  margin: 0 auto;
 }
 .popup-overlay .popup-main__btn {
   max-width: 125px;

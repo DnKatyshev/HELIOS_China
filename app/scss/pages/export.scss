@@ -161,6 +161,14 @@ picture{
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    overflow: hidden;
+    .arrow{
+        position: relative;
+        left: -100%;
+        opacity: 0;
+        width: 98%;
+    }
 }
 
 .service-slider{

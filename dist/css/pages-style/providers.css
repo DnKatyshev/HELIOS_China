@@ -232,12 +232,13 @@ header, footer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  flex: 30%;
   row-gap: 12px;
   padding: 20px;
   font-family: "Inter";
 }
 .service-info__item h4 {
-  font-size: clamp(26px, 3vw, 32px);
+  font-size: clamp(26px, 3vw, 28px);
   font-weight: 500;
 }
 .service-info__item p {
@@ -273,6 +274,14 @@ picture {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+picture .arrow {
+  position: relative;
+  left: -100%;
+  opacity: 0;
+  width: 98%;
 }
 
 .service-slider {

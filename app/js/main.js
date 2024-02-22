@@ -16,9 +16,9 @@ let g2 = gsap.matchMedia();
 g2.add("(min-width: 940px)", () => {
   tl
   // .from('header .logo',{autoAlpha: 0, xPercent: -100,  duration: 0.4})
-  .from('.header__menu-li', {autoAlpha: 0, yPercent: -100,  duration: 0.3, stagger: 0.2})
-  .to('.header__menu-line', {duration: .85, width: "100%"}, '-=.7')
-  .from('.service__text:nth-child(1)', {autoAlpha: 0, yPercent: -10,  duration: 0.6}, '-=.6')
+  .to('.header__menu-line', {duration: 2.5, width: "100%"})
+  .from('.header__menu-li', {autoAlpha: 0, yPercent: -100,  duration: 0.3, stagger: 0.2}, '-=2.3')
+  .from('.service__text:nth-child(1)', {autoAlpha: 0, yPercent: -10,  duration: 0.6}, '-=.65')
   .from('.service__title img', {autoAlpha: 0, width: 0,  duration: 0.5}, '+=.35')
   .from('.service__text:nth-child(3)', {autoAlpha: 0, yPercent: -10,  duration: 0.5}, '+=.35')
 })

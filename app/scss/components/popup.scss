@@ -32,13 +32,16 @@
                 font-size: 24px;
             }
             img{
+                display: block;
+                margin: 0 auto;
                 max-height: 125px;
+                width: 75%;
             }
         }
         &__block{
             display: flex;
             flex-direction: column;
-            row-gap: 32px;
+            row-gap: 16px;
             background: #fff;
             border-radius: 14px 14px 0 0;
             padding: 10px 20px;
@@ -59,9 +62,8 @@
 
         &__connection{
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            column-gap: 40px;
+            flex-direction: column;
+            row-gap: 20px;
             background: $Green;
             color: #fff;
             border-radius: 0 0 14px 14px;
@@ -70,8 +72,11 @@
                 font-size: 18px;
                 font-weight: 600;
             }
-            a{
-                color: $DarkBlue;
+            .form__form-body{
+                padding: 15px;
+            }
+            .form__btn{
+                margin: 0 auto;
             }
         }
         &__btn{

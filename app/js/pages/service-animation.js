@@ -10,15 +10,15 @@ serviceAnim_2
     xPercent: -50, opacity: 0, duration: 0.7
 })
 
-.from('#arrow1', {
-    width: 0, duration: 0.3
+.to('#arrow1', {
+    autoAlpha: 1, left: 0, duration: 0.45
 })
 
 .from('.service-info__item:nth-child(3)', {
     xPercent: -50, opacity: 0, duration: 0.7
 })
-.from('#arrow2', {
-    width: 0, duration: 0.3
+.to('#arrow2', {
+    autoAlpha: 1, left: 0, duration: 0.45
 })
 
 .from('.service-info__item:nth-child(5)', {
