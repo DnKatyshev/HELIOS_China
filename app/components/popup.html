@@ -17,12 +17,57 @@
             </div>
             <div class="popup-main__made">
                 <h5>Что для них сделали:</h5>
-                <p>Tools to help you schedule and earn on your own terms–customize exactly how and when clients can.Tools to help you schedule and earn on your own terms–customize.</p>
+                <p>Tools to help you schedule and earn on your own terms–customize exactly how and when clients
+                    can.Tools to help you schedule and earn on your own terms–customize.</p>
             </div>
         </div>
         <div class="popup-main__connection">
             <p>Вы можете связаться с ними чтобы больше о нас узнать</p>
-            <a href="index.html" class="btn popup-main__btn">Связаться</a>
-        </div> 
+            <a href="#form" class="btn popup-main__btn" data-mob-link>Связаться</a>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="popup-overlay-form">
+    <div class="popup-main-form">
+        <a class="popup-overlay__cross-form">
+            <span></span>
+            <span></span>
+        </a>
+        
+        <form action="" class="form__form-body" method="post" id="form">
+            <div class="form__group">
+                <div class="form__label-block">
+                    <input type="text" class="form__input" placeholder="ФИО" id="input-1" name="name">
+                    <label for="input-1" class="form__label">имя</label>
+                </div>
+            </div>
+            <div class="form__group">
+                <div class="form__label-block">
+                    <input type="tel" class="form__input" placeholder="+7-900-185-18-18" id="input-2" name="phone">
+                    <label for="input-2" class="form__label">телефон</label>
+                </div>
+            </div>
+            <div class="form__group">
+                <div class="form__label-block">
+                    <input type="email" class="form__input" placeholder="example@gmail.com" id="input-3" name="email">
+                    <label for="input-3" class="form__label">почта</label>
+                </div>
+            </div>
+            <button class="btn form__btn">
+                Отправить
+            </button>
+
+            <div class="form-done">
+                <span>HELIOS</span>
+                <div class="form-done__text">
+                    <h3>Заявка отправлена!</h3>
+                    <p>Мы ответим вам в течение часа :)</p>
+                </div>
+            </div>
+        </form>
+
     </div>
 </div>

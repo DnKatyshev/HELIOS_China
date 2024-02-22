@@ -10,6 +10,8 @@
 
     <link rel="stylesheet" href="css/components/header.css">
     <link rel="stylesheet" href="css/components/form.css">
+    <link rel="stylesheet" href="css/components/widget.css">
+    <link rel="stylesheet" href="css/components/popup.css">
     <link rel="stylesheet" href="css/components/footer.css">
 
     <link rel="stylesheet" href="css/pages-style/services.css">
@@ -30,22 +32,6 @@
             <div class="services__body">
 
 
-                <div class="services__item services__item--orange">
-                    <div class="services__content">
-                        <div class="services__text">
-                            <h2 class="services__subtitle">
-                                Экспорт из Китая
-                            </h2>
-                            <p class="services__paragraph">
-                                Tools to help you schedule and earn on your own terms–customize exactly how and when client scan book with you, host virtual appointments or classes, and block off personal time.
-                            </p>
-                        </div>
-                        <a href="export.html" class="btn services__btn">
-                            Подробнее
-                        </a>
-                    </div>
-                    <img src="images/pages/services/export.jpg" alt="" class="services__img">
-                </div>
                 <div class="services__item services__item--blue">
                     <div class="services__content">
                         <div class="services__text">
@@ -53,10 +39,26 @@
                                 Импорт из Китая
                             </h2>
                             <p class="services__paragraph">
-                                Tools to help you schedule and earn on your own terms–customize exactly how and when clients can.
+                                Наша компания выделяется на фоне конкурентов благодаря высокому качеству товаров и проверенным поставщикам. Мы гарантируем пунктуальность в доставке, уделяем особое внимание срокам и логистике.
                             </p>
                         </div>
                         <a href="import.html" class="btn services__btn">
+                            Подробнее
+                        </a>
+                    </div>
+                    <img src="images/pages/services/export.jpg" alt="" class="services__img">
+                </div>
+                <div class="services__item services__item--orange">
+                    <div class="services__content">
+                        <div class="services__text">
+                            <h2 class="services__subtitle">
+                                Экспорт из России
+                            </h2>
+                            <p class="services__paragraph">
+                                Наша компания предоставляет быструю и надежную доставку товаров из РФ с высоким качеством обслуживания. Мы выделяемся среди конкурентов благодаря эффективной логистике и безупречной репутации в области международной торговли.
+                            </p>
+                        </div>
+                        <a href="export.html" class="btn services__btn">
                             Подробнее
                         </a>
                     </div>
@@ -69,7 +71,7 @@
                                 Поиск поставщиков
                             </h2>
                             <p class="services__paragraph">
-                                Tools to help you schedule and earn on your own terms–customize exactly how and when clients can.
+                                Поиском поставщика будут заниматься опытные эксперты-китаисты, которые находятся в КНР и могут напрямую вести переговоры с вашими будущими партнерами. Можем отбирать поставщиков «вручную» благодаря физическому присутствию команды в Китае.
                             </p>
                         </div>
                         <a href="providers.html" class="btn services__btn">
@@ -87,6 +89,9 @@
 
     @include('components/form.html')
 
+    @include('components/widget.html')
+    @include('components/popup.html')
+
     @include('components/footer.html')
     
 
@@ -100,6 +105,8 @@
     <script src="js/js-extra-settings/ScrollTrigger.min.js"></script>
     
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="js/fetch.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html> 

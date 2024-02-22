@@ -1,18 +1,27 @@
 // GSAP-ANIMATION
 let tl = gsap.timeline()
-tl.from('header .logo',{autoAlpha: 0, xPercent: -100,  duration: 0.6})
 
-let mq = gsap.matchMedia();
-mq.add("(min-width: 940px)", () => {
-  tl.from('.header__menu-li', {
-    autoAlpha: 0, yPercent: -100,  duration: 0.5, stagger: 0.2}, '+=0.2')
+let g1 = gsap.matchMedia();
+g1.add("(max-width: 940px)", () => {
+  tl
+  // .from('header .logo',{autoAlpha: 0, xPercent: -100,  duration: 0.6})
+  .to('.header__menu-line', {duration: .6, width: "100%"}, '-=.6')
+  .from('.service__text:nth-child(1)', {autoAlpha: 0, yPercent: -10,  duration: 0.6}, '-=.6')
+  .from('.service__title img', {autoAlpha: 0, width: 0,  duration: 0.5}, '+=.35')
+  .from('.service__text:nth-child(3)', {autoAlpha: 0, yPercent: -10,  duration: 0.5}, '-=.35')
 });
 
-tl
-  .to('.header__menu-line', {duration: .5, width: "100%"}, '+=0.2')
-  .from('.service__text:nth-child(1)', {autoAlpha: .4, yPercent: -30,  duration: 0.6}, '+=.2')
-  .from('.service__title img', {autoAlpha: 0, width: 0,  duration: 0.6}, '+=.3')
-  .from('.service__text:nth-child(3)', {autoAlpha: .4, yPercent: -30,  duration: 0.6}, '+=.2')
+
+let g2 = gsap.matchMedia(); 
+g2.add("(min-width: 940px)", () => {
+  tl
+  // .from('header .logo',{autoAlpha: 0, xPercent: -100,  duration: 0.4})
+  .from('.header__menu-li', {autoAlpha: 0, yPercent: -100,  duration: 0.3, stagger: 0.2})
+  .to('.header__menu-line', {duration: .85, width: "100%"}, '-=.7')
+  .from('.service__text:nth-child(1)', {autoAlpha: 0, yPercent: -10,  duration: 0.6}, '-=.6')
+  .from('.service__title img', {autoAlpha: 0, width: 0,  duration: 0.5}, '+=.35')
+  .from('.service__text:nth-child(3)', {autoAlpha: 0, yPercent: -10,  duration: 0.5}, '+=.35')
+})
 
 // QUESTIONS-TABS
 let questionTabs = document.querySelectorAll('.question__title') 
@@ -47,14 +56,13 @@ const layoutSwiper = new Swiper('#layout-slider', {
     },
     slidesPerView: 2,
     slidesRerGroup: 1,
-    spaceBetween: 12,
+    spaceBetween: 25,
     loop: true,
     centeredSlides: true,
 
     breakpoints: {
       700: {
           slidesPerView: 3,
-          spaceBetween: 32,
           centeredSlides: false,
         },
       1100: {
@@ -69,8 +77,7 @@ const layoutSwiper = new Swiper('#layout-slider', {
   speed: 1200,
 
   autoplay: {
-    delay: 2500,
-    pauseOnMouseEnter: true,
+    delay: 2000,
   },
 })
 
@@ -108,6 +115,7 @@ const partnersSwiperFirst = new Swiper('#partners__slider-first', {
   autoplay: {
     delay: 2300,
   },
+
 })
 const partnerSwiperSecond = new Swiper('#partners__slider-second', {
 
@@ -145,62 +153,64 @@ const partnerSwiperSecond = new Swiper('#partners__slider-second', {
   },
 })
 
-
-
-
-// Form-Validation
-function validation(form){
-
-    function removeError(input){
-        let inputParent = input.closest('.form__group')
         
-        if (input.classList.contains('error')){
-            inputParent.querySelector('.error-label').remove()
-            input.classList.remove('error')
-        }
-    }
 
-    function createError(input, text){
-        let inputParent = input.closest('.form__group')
-        let errorParagraph = document.createElement('p')
+// ПопапЫ
+let popupButtons = document.querySelectorAll('.popup-btn')
+let popupClose = document.querySelectorAll('.popup-overlay__cross')
+let popupOverlay = document.querySelector('.popup-overlay')
+popupButtons.forEach(function(button){
+    button.addEventListener('click', function() {
+        popupOverlay.classList.add('active')
+        document.body.classList.add('fixed-page')
 
-        input.classList.add('error')
-        errorParagraph.classList.add('error-label')
-        errorParagraph.textContent = text
-        
-        inputParent.append(errorParagraph)
-    }
+      let popupTitle = popupOverlay.querySelector('.popup-main__text');
+      let popupCompany = popupOverlay.querySelector('.popup-main__company p');
+      let popupMade = popupOverlay.querySelector('.popup-main__made p');
+      let popupLink = popupOverlay.querySelector('.popup-main__btn');
 
+      [popupTitle.textContent, popupCompany.textContent, popupMade.textContent] = [this.dataset.title, this.dataset.descr, this.dataset.work]
 
-    let result = true
-
-    let formInputs = document.querySelectorAll('.form__input')
-    formInputs.forEach(input => {
-
-        removeError(input)
-
-        if (input.value == ''){
-            createError(input, 'Поле не заполнено!')
-            result = false
-        }
     })
-
-    return result
-}
-
-document.getElementById('form').addEventListener('submit', function(event) {
-    event.preventDefault()
-
-    if (validation(this) == true) {
-        alert('Форма проверена успешно!')
-    }
 })
-// Input-Mask
-let formPhone = document.querySelector('#input-2')
-let im = new Inputmask('+7 (999) 999-99-99', {showMaskOnHover: false})
-im.mask(formPhone)
+popupClose.forEach((clsButton) => {
+    clsButton.addEventListener('click', () => {
+        popupOverlay.classList.remove('active')
+        document.body.classList.remove('fixed-page')
+    })
+})
+document.addEventListener('click', (e) => {
+    if (e.target == popupOverlay) { 
+        popupOverlay.classList.remove('active') 
+        document.body.classList.remove('fixed-page')
+    } 
+})
 
 
+
+let popupButtonsForm = document.querySelectorAll('.popup-btn--form')
+let popupCloseForm = document.querySelectorAll('.popup-overlay__cross-form')
+let popupOverlayForm = document.querySelector('.popup-overlay-form')
+popupButtonsForm.forEach((button) => {
+  button.addEventListener('click', (e) => {
+    e.preventDefault()
+    popupOverlayForm.classList.add('active')
+    document.body.classList.add('fixed-page')
+  })
+})
+popupCloseForm.forEach((clsButton) => {
+  clsButton.addEventListener('click', () => {
+      popupOverlayForm.classList.remove('active')
+      document.body.classList.remove('fixed-page')
+  })
+})
+document.addEventListener('click', (e) => {
+  if (e.target == popupOverlayForm) { 
+      popupOverlayForm.classList.remove('active') 
+      document.body.classList.remove('fixed-page')
+  } 
+})
+//-------------------
         // Burger-Nenu
         let burgerMenu = document.querySelector('.menu-burger')
         let arrowMenu = document.querySelector('.header__menu-arrow')
@@ -218,33 +228,11 @@ im.mask(formPhone)
         mobLinks.forEach((mobLink) => {
           mobLink.addEventListener('click', (e) => {
             menuOverlay.classList.remove('active-menu')
+            popupOverlay.classList.remove('active')
             document.body.classList.remove('fixed-page')
           })
         })
-        
 
-// Попап
-let popupButtons = document.querySelectorAll('.popup-btn')
-let popupClose = document.querySelectorAll('.popup-overlay__cross')
-let popupOverlay = document.querySelector('.popup-overlay')
-popupButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-        popupOverlay.classList.add('active')
-        document.body.classList.add('fixed-page')
-    })
-})
-popupClose.forEach((clsButton) => {
-    clsButton.addEventListener('click', () => {
-        popupOverlay.classList.remove('active')
-        document.body.classList.remove('fixed-page')
-    })
-})
-document.addEventListener('click', (e) => {
-    if (e.target == popupOverlay) {
-        popupOverlay.classList.remove('active')
-        document.body.classList.remove('fixed-page')
-    } 
-})
 
         // Раскрытие trends-карточек 
         let hiddenArrow = document.querySelector('.trends-arrows')
@@ -270,4 +258,37 @@ widgetTrigger.addEventListener('click', (e) => {
   widgetIcons.classList.toggle('widget__socials--active')
 })
           
- 
+
+
+
+// КАРТА
+// Yandex-Maps
+let centerStart = [48.096732832947666,89.61703676275182]
+let center1 = [55.699910374770525,37.85851989422596];
+let center2 = [43.118602574514064,131.89076649999996];
+let center3 = [31.331708775043488,121.53895484391826];
+let center4 = [39.95201364813881,116.46604691553632];
+
+function init() {
+
+	let map1 = new ymaps.Map('map', {
+		center: centerStart,
+		zoom: 3,
+    controls: []
+	});
+
+
+    const cords = [center1, center2, center3, center4]
+    cords.forEach((item) => {
+      let placeMark = new ymaps.Placemark(item, {}, {
+        iconLayout: 'default#image',
+        iconImageHref: 'images/components/map/map-icon.svg',
+        iconImageSize: [30, 30],
+        iconImageOffset: []
+      })
+      map1.geoObjects.add(placeMark)
+    })
+
+}
+
+ymaps.ready(init);

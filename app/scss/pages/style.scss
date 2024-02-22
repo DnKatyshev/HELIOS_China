@@ -97,6 +97,7 @@ section{
     align-items: center;
     padding: 30px 0;
     font-weight: 500;
+    
     &-line{
         position: absolute;
         bottom: 0;
@@ -109,7 +110,7 @@ section{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        column-gap: 30px;
+        column-gap: 36px;
     }
     &-list { 
         display: flex;
@@ -118,6 +119,7 @@ section{
     }
     &-li a{
         color: #fff; 
+        font-size: 13px;
         transition: all .2s ease;
         &:hover{
             color: #ffebeb;
@@ -130,7 +132,7 @@ section{
     &-contacts {
         display: flex;
         align-items: center;
-        column-gap: 10px;
+        column-gap: 25px;
     }
     &-btn {
         max-width: 125px;
@@ -262,10 +264,6 @@ section{
 .layout__swiper {
     position: relative;
     z-index: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
     cursor: grab;
 }
 .layout__slide {
@@ -276,6 +274,8 @@ section{
     height: 210px;
     &-img {
         width: 100%;
+        min-height: 110px;
+        object-fit: cover;
         margin-bottom: 8px;
         border-radius: 12px;
     }
@@ -310,9 +310,9 @@ section{
     }
 }
 .swiper-slide-active{
-    transform: translateY(-15px);
-    transition: all .3s ease;
+
 }
+
 @media(max-width: 540px){
     .layout{
         text-align: center;
@@ -389,7 +389,7 @@ section{
 .providers__item:nth-child(1){
     grid-column: span 2;
     .providers__btn{
-        background: $Orange;
+        background: $Azure;
     }
     img{
         width: clamp(280px, 40vw, 650px);
@@ -398,7 +398,7 @@ section{
 .providers__item:nth-child(2){
     flex-direction: column;
     .providers__btn{
-        background: $Azure;
+        background: $Orange;
     }
     img{
         width: clamp(280px, 35vw, 650px);
@@ -496,6 +496,14 @@ section{
         .team__item {
             padding: 10px;
         }
+    }
+    .team{
+        .section__subtitle{
+            display: none;
+        }
+    }
+    .section__title-block::after{
+        display: none;
     }
 }
 
@@ -707,6 +715,7 @@ section{
     row-gap: 12px;
     max-height: 278px;
     padding: 20px;
+    cursor: pointer;
     .partners__slide-title{
         font-family: $Inter;
     }
@@ -1110,6 +1119,63 @@ section{
 
 
 
+// ADRESSES-MAP
+.adresses{
+    background: #daedff;
+    &__content{
+        display: grid;
+        grid-template: repeat(1, auto) / 60% 40%;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+    }
+    #map{
+        height: 450px;
+        width: 100%;
+    }
+    ymaps{
+        border-radius: 25px;
+    }
+    [class*="copyrights-pane"]{
+        display: none !important;
+    }
+    
+
+    &__text{
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        gap: 40px;
+    }
+    &__text-item{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        h2{
+            font-size: 32px;
+            font-weight: 600;
+        }
+        li{
+            font-size: 18px;
+            font-weight: 500;
+        }
+    }
+    
+
+    @media(max-width: 940px){
+        &__content{
+            grid-template: repeat(2, auto) / 1fr;
+        }
+        .section__title-block{
+            flex-direction: column;
+        }
+    }
+
+}
+
+
+
+
 // ------- FORM -------
 .form{
     background: #EEF7FF;
@@ -1130,6 +1196,7 @@ section{
     }
 
         &__form-body{
+            position: relative;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -1208,6 +1275,41 @@ section{
             object-fit: cover;
             border-radius: 22px;
         }
+    }
+
+
+     .form-done{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        background: $Green;
+        color: #fff;
+        visibility: hidden;
+        span{
+            position: absolute;
+            font-size: clamp(80px,12vw,140px);
+            opacity: .05;
+            font-weight: 600;
+        }
+        .form-done__text{
+            display: flex;
+            flex-direction: column;
+            row-gap: 16px;
+            margin-left: 35px;
+            h1{
+                font-size: 24px;
+            }
+            p{
+
+            }
+        }
+    }
+    .active-form{
+        visibility: visible;
     }
 
 

@@ -19,6 +19,7 @@
     }
 
         &__form-body{
+            position: relative;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -123,6 +124,43 @@
             max-width: 100%;
         }
     }
+
+    
+    .form-done{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        background: $Green;
+        color: #fff;
+        visibility: hidden;
+        span{
+            position: absolute;
+            font-size: clamp(100px, 12vw ,280px);
+            opacity: .05;
+            font-weight: 600;
+        }
+        .form-done__text{
+            display: flex;
+            flex-direction: column;
+            row-gap: 16px;
+            margin-left: 35px;
+            h1{
+                font-size: 24px;
+            }
+            p{
+
+            }
+        }
+    }
+    .active-form{
+        visibility: visible;
+    }
+
+
 }
 
 

@@ -50,6 +50,7 @@
         padding: 14px 24px;
         background: $DarkBlue;
         color: #fff;
+        margin: 0 auto;
     }
     .section__subtitle {
         margin-bottom: 40px;
@@ -59,7 +60,7 @@
     &__main{
         display: flex;
         flex-direction: column;
-        row-gap: 80px;
+        row-gap: 60px;
         padding: 50px;
         border-radius: 22px;
         picture{
@@ -111,12 +112,12 @@
     &__main{
         display: flex;
         justify-content: space-between;
-        align-items: center;
         column-gap: 10px;
     }
     &__item{
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
         row-gap: 12px;
         padding: 20px;
         font-family: $Inter;
@@ -155,6 +156,11 @@
     }
 }
 
+picture{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .service-slider{
     background: #EEF7FF;
@@ -169,7 +175,7 @@
 .service-stage{
     &__main{
         display: grid;
-        grid-template: repeat(2, auto) / repeat(2, 1fr);
+        grid-template: repeat(2, 1fr) / repeat(2, 1fr);
         gap: 16px;
     }
     &__item{

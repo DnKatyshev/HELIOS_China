@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/components/form.css">
     <link rel="stylesheet" href="css/components/footer.css">
     <link rel="stylesheet" href="css/components/popup.css">
+    <link rel="stylesheet" href="css/components/widget.css">
 
     <link rel="stylesheet" href="css/pages-style/providers.css">
 </head>
@@ -25,7 +26,6 @@
 
             <div class="section__title-block">
                 <h1 class="section__title">Поиск поставщиков</h1>
-                <a href="#form" class="btn service__btn">Обсудить</a>
             </div>
             <p class="section__subtitle">С нами будет проще!</p>
     
@@ -44,6 +44,8 @@
                 </div>
 
                 <img src="images/pages/services/export.jpg" alt="">
+
+                <a href="#form" class="btn service__btn popup-btn--form">Обсудить</a>
             </div>
 
         </div>
@@ -225,7 +227,7 @@
 
 @include('components/footer.html')
 
-
+@include('components/widget.html')
 @include('components/popup.html')
 
 
@@ -238,6 +240,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="js/pages/service-animation.js"></script>
 
+    <script src="js/fetch.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html> 
