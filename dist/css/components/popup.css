@@ -172,7 +172,7 @@ header, footer {
 .popup-overlay .popup-main__block {
   display: flex;
   flex-direction: column;
-  row-gap: 16px;
+  row-gap: 14px;
   background: #fff;
   border-radius: 14px 14px 0 0;
   padding: 10px 20px;
@@ -180,7 +180,7 @@ header, footer {
 .popup-overlay .popup-main__company, .popup-overlay .popup-main__made {
   display: flex;
   flex-direction: column;
-  row-gap: 20px;
+  row-gap: 6px;
 }
 .popup-overlay .popup-main__company h5, .popup-overlay .popup-main__made h5 {
   font-family: "Inter";
@@ -188,6 +188,7 @@ header, footer {
 }
 .popup-overlay .popup-main__company p, .popup-overlay .popup-main__made p {
   font-family: "Inter";
+  font-size: 14px;
 }
 .popup-overlay .popup-main__connection {
   display: flex;
@@ -214,9 +215,12 @@ header, footer {
   padding: 13px 24px;
 }
 @media (max-width: 768px) {
-  .popup-overlay .popup-main__title, .popup-overlay .popup-main__connection {
+  .popup-overlay .popup-main__title {
     flex-direction: column;
-    row-gap: 20px;
+    row-gap: 8px;
+  }
+  .popup-overlay .popup-main__connection {
+    flex-direction: column;
   }
   .popup-overlay .popup-main__btn {
     max-width: 100%;

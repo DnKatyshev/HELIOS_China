@@ -41,7 +41,7 @@
         &__block{
             display: flex;
             flex-direction: column;
-            row-gap: 16px;
+            row-gap: 14px;
             background: #fff;
             border-radius: 14px 14px 0 0;
             padding: 10px 20px;
@@ -50,13 +50,14 @@
         &__made{
             display: flex;
             flex-direction: column;
-            row-gap: 20px;
+            row-gap: 6px;
             h5{
                 font-family: $Inter;
                 font-size: 20px;
             }
             p{
                 font-family: $Inter;
+                font-size: 14px;
             }
         }
 
@@ -86,10 +87,12 @@
         }
 
         @media(max-width: 768px){
-            &__title,
+            &__title{
+                flex-direction: column;
+                row-gap: 8px;
+            }
             &__connection{
                 flex-direction: column;
-                row-gap: 20px;
             }
 
             &__btn{
