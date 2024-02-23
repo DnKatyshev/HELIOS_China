@@ -178,7 +178,6 @@ header, footer {
     height: 100%;
     width: 20px;
     transform: skewX(-45deg);
-    animation: blickAnimation;
     background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3));
     animation: blickAnimation 3s infinite linear;
   }

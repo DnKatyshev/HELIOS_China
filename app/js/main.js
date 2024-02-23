@@ -4,8 +4,7 @@ let tl = gsap.timeline()
 let g1 = gsap.matchMedia();
 g1.add("(max-width: 940px)", () => {
   tl
-  // .from('header .logo',{autoAlpha: 0, xPercent: -100,  duration: 0.6})
-  .to('.header__menu-line', {duration: .6, width: "100%"}, '-=.6')
+  .to('.header__menu-line', {duration: .6, width: "100%"})
   .from('.service__text:nth-child(1)', {autoAlpha: 0, yPercent: -10,  duration: 0.6}, '-=.6')
   .from('.service__title img', {autoAlpha: 0, width: 0,  duration: 0.5}, '+=.35')
   .from('.service__text:nth-child(3)', {autoAlpha: 0, yPercent: -10,  duration: 0.5}, '-=.35')
@@ -233,6 +232,14 @@ document.addEventListener('click', (e) => {
           })
         })
 
+        
+// SOCIALS-WIDGET
+let widgetTrigger = document.querySelector('.widget__trigger')
+let widgetIcons = document.querySelector('.widget__socials')
+
+widgetTrigger.addEventListener('click', (e) => {
+  widgetIcons.classList.toggle('widget__socials--active')
+})
 
         // Раскрытие trends-карточек 
         let hiddenArrow = document.querySelector('.trends-arrows')
@@ -250,13 +257,6 @@ document.addEventListener('click', (e) => {
         })
  
 
-// SOCIALS-WIDGET
-let widgetTrigger = document.querySelector('.widget__trigger')
-let widgetIcons = document.querySelector('.widget__socials')
-
-widgetTrigger.addEventListener('click', (e) => {
-  widgetIcons.classList.toggle('widget__socials--active')
-})
           
 
 
