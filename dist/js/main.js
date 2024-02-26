@@ -266,8 +266,8 @@ widgetTrigger.addEventListener('click', (e) => {
 let centerStart = [48.096732832947666,89.61703676275182]
 let center1 = [55.699910374770525,37.85851989422596];
 let center2 = [43.118602574514064,131.89076649999996];
-let center3 = [31.331708775043488,121.53895484391826];
-let center4 = [39.95201364813881,116.46604691553632];
+let center3 = [23.1095977,113.0897473];
+let center4 = [29.4105125,120.1294093];
 
 function init() {
 
@@ -277,18 +277,57 @@ function init() {
     controls: []
 	});
 
-
     const cords = [center1, center2, center3, center4]
-    cords.forEach((item) => {
-      let placeMark = new ymaps.Placemark(item, {}, {
-        iconLayout: 'default#image',
-        iconImageHref: 'images/components/map/map-icon.svg',
-        iconImageSize: [30, 30],
-        iconImageOffset: []
+    const cities = ['Москва', 'Владивосток',  'Фошань', 'Иу']
+    const adresses = ['Лермонтовский пр-т, БЦ Лермонтовский, оф .402', 'ул. Уборевича д. 17, оф. 1',  'Warehouse 32, Nanhai District, Foshan City', 'Warehouse 788, Building 46, Changchun District 3, Yiwu']
+
+
+    cords.forEach((item, index) => {
+
+      let placeMark = new ymaps.Placemark(item, {
+        iconCaption: cities[index],
+
+        balloonContentBody: 
+    `<div class="baloon">
+        <ul class="baloon__list">
+            <li><p class="baloon__header">Точный адрес:</p></li>
+            <li><p class="baloon__body">${adresses[index]}</p></li>
+            <li><a href="https://yandex.ru/maps/?rtext=~${cords[index]}" class="baloon__btn">Маршрут</a></li>
+        </ul>
+    </div>`}, 
+    
+    {
+        //iconLayout: 'default#image',
+        iconImageHref: 'images/components/map/point.png',
+        iconImageSize: [30, 45],
+        iconImageOffset: [],
+        preset: 'islands#darkGreenDotIcon',
       })
       map1.geoObjects.add(placeMark)
     })
 
+// МАРШРУТ ОТ ГЕО-ПОЗИЦИИ: как сделать, чтобы при клике на какую-либо Метку на карте - её адрес подставлялся в поле "to" ?
+// let control = map1.controls.get('routePanelControl');
+// let location = ymaps.geolocation.get();
+// location.then(function (res) {
+//     // Получение адреса местоположения пользователя.
+//     let userTextLocation = res.geoObjects.get(0).properties.get('text');
+//     control.routePanel.state.set({
+//         from: userTextLocation,
+//         to: ` `
+//     });
+// });
+
 }
 
 ymaps.ready(init);
+
+
+
+//FancyBox
+// import { Fancybox } from "@fancyapps/ui";
+// import "@fancyapps/ui/dist/fancybox/fancybox.css";
+Fancybox.bind("[data-fancybox='gallery']", {
+  closeButton: false,
+  hideScrollbar: false,
+});

@@ -62,16 +62,6 @@ export function php(){
 
 // Функции для компиляции стилей
 export function style(){
-    return gulp.src('app/scss/base.scss') 
-    .pipe(sourceMaps.init())
-    .pipe(sass())  
-    // .pipe(cleancss( {level: { 1: { specialComments: 0 } } }))
-    .pipe(concat('base.css'))
-    .pipe(webcss())
-    .pipe(sourceMaps.write('.'))
-    .pipe(gulp.dest('dist/css')) 
-}
-export function style2(){
     return gulp.src('app/scss/pages/*.scss')  
     .pipe(sourceMaps.init())
     .pipe(sass())  
@@ -80,7 +70,7 @@ export function style2(){
     .pipe(sourceMaps.write('.'))
     .pipe(gulp.dest('dist/css/pages-style')) 
 }
-export function style3(){
+export function style2(){
     return gulp.src('app/scss/components/*.scss')  
     .pipe(sourceMaps.init())
     .pipe(sass())  
@@ -117,7 +107,7 @@ export function watching(){
     // });
     gulp.watch(['app/**/*.html'], html)
     gulp.watch(['app/**/*.php'], php)
-    gulp.watch(['app/scss/**/*.scss'], gulp.series(style, style2, style3))
+    gulp.watch(['app/scss/**/*.scss'], gulp.series(style, style2))
     gulp.watch(['app/images/**/*'], images)
     gulp.watch(['app/js/**/*.js'], minjs)
     gulp.watch(['app/fonts/*'], fonts)
@@ -125,7 +115,7 @@ export function watching(){
 
 export default gulp.series(
     clean,
-    gulp.parallel(html, php, style, style2, style3, minjs, images, fonts), 
+    gulp.parallel(html, php, style, style2, minjs, images, fonts), 
     gulp.parallel(watching)
 )
 

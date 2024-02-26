@@ -568,6 +568,25 @@ section {
   opacity: 0.7;
 }
 
+.fancybox-image {
+  width: 310px;
+  height: 290px;
+  border-radius: 16px;
+}
+
+.fancybox__footer {
+  display: none;
+}
+
+[data-carousel-next],
+[data-carousel-prev] {
+  display: none;
+}
+
+.fancybox__container {
+  --fancybox-bg: rgba(73, 73, 73, 0.6);
+}
+
 @media (max-width: 900px) {
   .team__block {
     grid-template: repeat(3, auto)/repeat(3, 1fr);
@@ -1151,9 +1170,6 @@ section {
   height: 450px;
   width: 100%;
 }
-.adresses ymaps {
-  border-radius: 25px;
-}
 .adresses [class*=copyrights-pane] {
   display: none !important;
 }
@@ -1177,6 +1193,23 @@ section {
   font-size: 18px;
   font-weight: 500;
 }
+.adresses__text-item li .adresses__phone {
+  position: relative;
+  color: #2c962c;
+}
+.adresses__text-item li .adresses__phone::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background-color: rgba(102, 192, 102, 0.7);
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  transition: all 0.25s ease-in-out;
+}
+.adresses__text-item li .adresses__phone:hover::after {
+  width: 100%;
+}
 @media (max-width: 940px) {
   .adresses__content {
     grid-template: repeat(2, auto)/1fr;
@@ -1184,6 +1217,42 @@ section {
   .adresses .section__title-block {
     flex-direction: column;
   }
+}
+
+.baloon__list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 6px;
+  height: 100%;
+}
+
+.baloon__header {
+  color: #0b0b0b;
+  opacity: 0.9;
+  font-size: 16px;
+}
+
+.baloon__body {
+  color: #373737;
+  font-size: 11px;
+}
+
+.baloon__btn {
+  display: inline-block;
+  width: 100%;
+  border-radius: 18px;
+  text-align: center;
+  transition: all 0.4s ease;
+  max-width: 60px;
+  padding: 4px 7px;
+  font-size: 8px;
+  background: #283849;
+  color: #fff1f1;
+}
+
+.ymaps-2-1-79-balloon__layout {
+  height: 110px;
 }
 
 .form {
@@ -1219,6 +1288,7 @@ section {
   width: 100%;
   height: 40px;
   padding-top: 14px;
+  color: #fff;
   opacity: 0.9;
   border-bottom: 2px solid rgba(255, 255, 255, 0.5);
   background: transparent;

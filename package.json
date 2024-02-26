@@ -2,7 +2,7 @@
   "name": "gulpstart",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -32,5 +32,8 @@
     "gulp-webp-css": "^1.1.0",
     "gulp-webp-html": "^1.0.2",
     "sass": "^1.70.0"
+  },
+  "dependencies": {
+    "@fancyapps/ui": "^5.0.33"
   }
 }
