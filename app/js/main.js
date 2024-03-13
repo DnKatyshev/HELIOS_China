@@ -297,8 +297,6 @@ function init() {
     </div>`}, 
     
     {
-        //iconLayout: 'default#image',
-        iconImageHref: 'images/components/map/point.png',
         iconImageSize: [30, 45],
         iconImageOffset: [],
         preset: 'islands#darkGreenDotIcon',
