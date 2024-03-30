@@ -1,3 +1,5 @@
+import {cards} from '/app/js/partners-cards/cards.js';
+
 // GSAP-ANIMATION
 let tl = gsap.timeline()
 
@@ -164,13 +166,18 @@ popupButtons.forEach(function(button){
         document.body.classList.add('fixed-page')
 
       let popupTitle = popupOverlay.querySelector('.popup-main__text');
-      let popupCompany = popupOverlay.querySelector('.popup-main__company p');
-      let popupMade = popupOverlay.querySelector('.popup-main__made p');
+      let popupDescr = popupOverlay.querySelector('.popup-main__company p');
+      let popupWork = popupOverlay.querySelector('.popup-main__made p');
       let popupImg = popupOverlay.querySelector('img');
       let popupLink = popupOverlay.querySelector('.popup-main__btn');
 
-      [popupTitle.textContent, popupCompany.textContent, popupMade.textContent, popupImg.src] = 
-      [this.dataset.title, this.dataset.descr, this.dataset.work, this.querySelector('img').src]
+      
+      const dataCard = this.dataset.card;
+
+      [popupTitle.textContent, popupDescr.textContent, popupWork.textContent, popupImg.src] = 
+      [cards[dataCard]["title"], cards[dataCard]["descr"], cards[dataCard]["work"], cards[dataCard]["img"]]
+      
+
 
       popupOverlay.querySelector('input[type="hidden"]').value = button.id
 
@@ -239,7 +246,6 @@ popupButtonsFormCategories.forEach((button) => {
 
   })
 })
-
 
 
 

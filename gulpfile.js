@@ -84,7 +84,7 @@ export function style2(){
 
 
 export function minjs(){
-    return gulp.src('app/js/**/*.js')
+    return gulp.src('app/js/**/*.{js,json}')
     .pipe(uglify())
     .pipe(gulp.dest('dist/js'))
 }
@@ -110,7 +110,7 @@ export function watching(){
     gulp.watch(['app/**/*.php'], php)
     gulp.watch(['app/scss/**/*.scss'], gulp.series(style, style2))
     gulp.watch(['app/images/**/*'], images)
-    gulp.watch(['app/js/**/*.js'], minjs)
+    gulp.watch(['app/js/**/*.{js,json}'], minjs)
     gulp.watch(['app/fonts/*'], fonts)
 }
 
