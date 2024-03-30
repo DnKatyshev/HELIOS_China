@@ -23,6 +23,7 @@ import changed from 'gulp-changed'; // чтобы плагины применя�
 import webhtml from 'gulp-webp-html';
 import webcss from 'gulp-webp-css';
 
+
 // FONTS
 import fonter from 'gulp-fonter';
 import ttf2woff2 from 'gulp-ttf2woff2';
@@ -51,7 +52,7 @@ export function html(){
         prefix: '@',
         basepath: '@file'
     }))
-    .pipe(webhtml())
+    // .pipe(webhtml())
     .pipe(gulp.dest('dist'))
     // .pipe(server.stream());
 }

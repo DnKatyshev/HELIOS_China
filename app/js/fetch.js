@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
             })
     
             if (response.ok) {
+                this.reset()
                 let formOverlay = this.querySelector('.form-done')
                 formOverlay.classList.add('active-form')
                 return await response.text()
@@ -97,6 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
         })
  
         if (response.ok){
+            this.reset()
             let formOverlay = this.querySelector('.form-done')
             formOverlay.classList.add('active-form')
             return await response.text()
@@ -114,6 +116,10 @@ document.addEventListener('DOMContentLoaded', function () {
         form.addEventListener('submit', postSend);
         form.addEventListener('submit', postTG);
 
+
+        // const body = document.querySelector('body')
+        // form.querySelector('input[type="hidden"]').value = body.id
+
     })
 
 })
@@ -127,3 +133,4 @@ document.addEventListener('DOMContentLoaded', function () {
    })
    im.mask(item)
  })
+

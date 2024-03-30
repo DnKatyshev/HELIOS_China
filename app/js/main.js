@@ -27,7 +27,7 @@ let questionTabs = document.querySelectorAll('.question__title')
 questionTabs.forEach((tab) => tab.addEventListener('click', function(){
 
     let questionContent = tab.nextElementSibling
-    // делаем флаг, который содержит - имеет ли текст класс active-tab(который его раскрывает)
+    // делаем флаг, который содержит - имеет ли контент Tab-a класс active-tab(который его раскрывает)
     let flg = questionContent.classList.contains('active-tab');
 
   document.querySelectorAll('.active-tab').forEach((e) => {
@@ -155,7 +155,7 @@ const partnerSwiperSecond = new Swiper('#partners__slider-second', {
         
 
 // ПопапЫ
-let popupButtons = document.querySelectorAll('.popup-btn')
+let popupButtons = document.querySelectorAll('.popup-btn')  // попап для партнёров (динамический контент через data-атрибуты)
 let popupClose = document.querySelectorAll('.popup-overlay__cross')
 let popupOverlay = document.querySelector('.popup-overlay')
 popupButtons.forEach(function(button){
@@ -166,28 +166,36 @@ popupButtons.forEach(function(button){
       let popupTitle = popupOverlay.querySelector('.popup-main__text');
       let popupCompany = popupOverlay.querySelector('.popup-main__company p');
       let popupMade = popupOverlay.querySelector('.popup-main__made p');
+      let popupImg = popupOverlay.querySelector('img');
       let popupLink = popupOverlay.querySelector('.popup-main__btn');
 
-      [popupTitle.textContent, popupCompany.textContent, popupMade.textContent] = [this.dataset.title, this.dataset.descr, this.dataset.work]
+      [popupTitle.textContent, popupCompany.textContent, popupMade.textContent, popupImg.src] = 
+      [this.dataset.title, this.dataset.descr, this.dataset.work, this.querySelector('img').src]
+
+      popupOverlay.querySelector('input[type="hidden"]').value = button.id
 
     })
 })
 popupClose.forEach((clsButton) => {
-    clsButton.addEventListener('click', () => {
+    clsButton.addEventListener('click', () => { 
         popupOverlay.classList.remove('active')
         document.body.classList.remove('fixed-page')
+        popupOverlay.querySelector('.form-done').classList.remove('active-form')
+        popupOverlay.querySelector('#form').reset()
     })
 })
 document.addEventListener('click', (e) => {
     if (e.target == popupOverlay) { 
         popupOverlay.classList.remove('active') 
         document.body.classList.remove('fixed-page')
+        popupOverlay.querySelector('.form-done').classList.remove('active-form')
+        popupOverlay.querySelector('#form').reset()
     } 
 })
 
 
 
-let popupButtonsForm = document.querySelectorAll('.popup-btn--form')
+let popupButtonsForm = document.querySelectorAll('.popup-btn--form')  // попап с серой формой 
 let popupCloseForm = document.querySelectorAll('.popup-overlay__cross-form')
 let popupOverlayForm = document.querySelector('.popup-overlay-form')
 popupButtonsForm.forEach((button) => {
@@ -195,20 +203,46 @@ popupButtonsForm.forEach((button) => {
     e.preventDefault()
     popupOverlayForm.classList.add('active')
     document.body.classList.add('fixed-page')
+
+    popupOverlayForm.querySelector('input[type="hidden"]').value = document.querySelector('body').id
+
   })
 })
 popupCloseForm.forEach((clsButton) => {
   clsButton.addEventListener('click', () => {
       popupOverlayForm.classList.remove('active')
       document.body.classList.remove('fixed-page')
+      popupOverlayForm.querySelector('.form-done').classList.remove('active-form')
+      popupOverlay.querySelector('#form').reset()
   })
 })
 document.addEventListener('click', (e) => {
   if (e.target == popupOverlayForm) { 
       popupOverlayForm.classList.remove('active') 
       document.body.classList.remove('fixed-page')
+      popupOverlayForm.querySelector('.form-done').classList.remove('active-form')
+      popupOverlay.querySelector('#form').reset()
   } 
 })
+
+// Попапы с уникальными ID для отправки
+let popupButtonsFormCategories = document.querySelectorAll('.popup-btn--form-categories')  // попап с серой формой для карточек Категорий
+let popupCloseFormCategories = document.querySelectorAll('.popup-overlay__cross-form')
+let popupOverlayFormCategories = document.querySelector('.popup-overlay-form')
+popupButtonsFormCategories.forEach((button) => {
+  button.addEventListener('click', (e) => {
+    e.preventDefault()
+    popupOverlayFormCategories.classList.add('active')
+    document.body.classList.add('fixed-page')
+
+    popupOverlayFormCategories.querySelector('input[type="hidden"]').value = button.id
+
+  })
+})
+
+
+
+
 //-------------------
         // Burger-Nenu
         let burgerMenu = document.querySelector('.menu-burger')
@@ -273,7 +307,7 @@ function init() {
 
 	let map1 = new ymaps.Map('map', {
 		center: centerStart,
-		zoom: 3,
+		zoom: 2,
     controls: []
 	});
 

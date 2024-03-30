@@ -42,7 +42,7 @@
             display: flex;
             flex-direction: column;
             row-gap: 14px;
-            background: #fff;
+            background: #eeeeee;
             border-radius: 14px 14px 0 0;
             padding: 10px 20px;
         }
@@ -304,6 +304,7 @@
     border-radius: 20px;
     overflow: hidden;
     visibility: hidden;
+    pointer-events: none;
     span{
         position: absolute;
         font-size: clamp(90px, 12vw ,170px);

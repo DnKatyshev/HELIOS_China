@@ -14,13 +14,10 @@ const partnersPageSliderFirst = new Swiper('#partners-line1', {
   
     breakpoints: {
       700: {
-          slidesPerView: 2.5,
+          slidesPerView: 2,
         },
       1100: {
         slidesPerView: 3,
-      },
-      1400: {
-        slidesPerView: 4,
         enabled: false,
       }
   },
@@ -41,13 +38,10 @@ const partnersPageSliderFirst = new Swiper('#partners-line1', {
   
     breakpoints: {
       700: {
-          slidesPerView: 3.5,
+          slidesPerView: 3,
         },
       1100: {
         slidesPerView: 4,
-      },
-      1400: {
-        slidesPerView: 5,
         enabled: false,
       }
   },
