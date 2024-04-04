@@ -3,8 +3,8 @@
         <div class="form__body">
 
             <div class="section__title-block second-title-block">
-                <h1 class="section__title second-title">Оставить заявку</h1>
-                <p class="section__subtitle second-subtitle">Мы ответим в течение 5 минут</p>
+                <h1 class="section__title second-title" data-lang="form-title">Оставить заявку</h1>
+                <p class="section__subtitle second-subtitle" data-lang="form-subtitle">Мы ответим в течение 5 минут</p>
             </div>
 
             <div class="form__content">
@@ -15,40 +15,40 @@
                         <div class="form__group">
                             <div class="form__label-block">
                                 <input type="text" class="form__input" placeholder="ФИО" id="input-1" name="name">
-                                <label for="input-1" class="form__label">имя</label>
+                                <label for="input-1" class="form__label" data-lang="form-name">имя</label>
                             </div>
                         </div>
                         <div class="form__group">
                             <div class="form__label-block">
                                 <input type="tel" class="form__input" placeholder="+7-900-185-18-18" id="input-2" name="phone">
-                                <label for="input-2" class="form__label">телефон</label>
+                                <label for="input-2" class="form__label" data-lang="form-tel">телефон</label>
                             </div>
                         </div>
                         <div class="form__group">
                             <div class="form__label-block">
                                 <input type="email" class="form__input" placeholder="example@gmail.com" id="input-3" name="email">
-                                <label for="input-3" class="form__label">почта</label>
+                                <label for="input-3" class="form__label" data-lang="form-mail">почта</label>
                             </div>
                         </div>
                         
-                        <input type="hidden" name="FROM" value="">
+                        <input type="hidden" name="FROM" value="ГЛАВНАЯ">
 
-                        <button class="btn form__btn"> 
+                        <button class="btn form__btn" data-lang="form-sending"> 
                             Отправить 
                         </button>
 
                         <div class="form-done">
                             <span>HELIOS</span>
                             <div class="form-done__text">
-                                <h3>Заявка отправлена!</h3>
-                                <p>Мы ответим вам в течение часа :)</p>
+                                <h3 data-lang="form-ended">Заявка отправлена!</h3>
+                                <p data-lang="form-eneded-time">Мы ответим вам в течение часа :)</p>
                             </div>
                         </div>
 
                     </form>
 
                     <div class="form__contacts">
-                        <h4>Связаться с нами другими способами:</h4>
+                        <h4 data-lang="form-socials">Связаться с нами другими способами:</h4>
                         <a href="tel:8-800-333-38-43">8-800-333-38-43</a>
                         <div class="form__socials">
                             <a href="https://t.me/+79151768885" class="dark-svg">
@@ -73,7 +73,7 @@
                 </div>
 
                 <div class="form__img">
-                    <img src="images/components/form/form-image.jpg" alt="">
+                    <picture><source srcset="images/components/form/form-image.webp" type="image/webp"><img src="images/components/form/form-image.jpg" alt=""></picture>
                 </div>
 
             </div>

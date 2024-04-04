@@ -29,12 +29,20 @@
             </a>
             <nav class="header__menu-nav">
                 <ul class="header__menu-list">
-                    <li class="header__menu-li"><a href="services.html">Услуги</a></li>
-                    <li class="header__menu-li"><a href="index.html">Отзывы</a></li>
-                    <li class="header__menu-li"><a href="partners.html">Партнёры</a></li>
-                    <li class="header__menu-li"><a href="trends.html">Тренды</a></li>
+                    <li class="header__menu-li"><a href="services.html" data-lang="header-li-1">Услуги</a></li>
+                    <li class="header__menu-li"><a href="index.html" data-lang="header-li-2">Отзывы</a></li>
+                    <li class="header__menu-li"><a href="partners.html" data-lang="header-li-3">Партнёры</a></li>
+                    <li class="header__menu-li"><a href="trends.html" data-lang="header-li-4">Тренды</a></li>
                     <li class="header__menu-li"><a href="index.html">Q&A</a></li>
                 </ul>
+                <div class="header__menu-flags">
+                    <a class="flag-btn" data-switch="ru">
+                        <img src="images/components/header/rus.webp" alt="">
+                    </a>
+                    <a class="flag-btn" data-switch="cn">
+                        <img src="images/components/header/cn.webp" alt="">
+                    </a>
+                </div>
                 <ul class="header__menu-contacts">
                     <li class="header__menu-li"><a href="tel:8-800-333-38-43">8-800-333-38-43</a></li>
                     <li class="header__menu-li">
@@ -60,7 +68,7 @@
                         </a>
                     </li>
                 </ul>  
-                <a href="" class="btn header__menu-btn popup-btn--form">
+                <a href="" class="btn header__menu-btn popup-btn--form" data-lang="btn-contact">
                     Связаться
                 </a>
             </nav>
@@ -69,13 +77,21 @@
 
             <nav class="header__menu-nav-mob">
                 <a href="" class="header__menu-arrow">
-                    <img src="images/pages/index/header/arrow.svg" alt="">
+                    <picture><source srcset="images/pages/index/header/arrow.svg" type="image/webp"><img src="images/pages/index/header/arrow.svg" alt=""></picture>
                 </a>
+                <div class="header__menu-flags">
+                    <a class="flag-btn" data-switch="ru">
+                        <img src="images/components/header/rus.webp" alt="">
+                    </a>
+                    <a class="flag-btn" data-switch="cn">
+                        <img src="images/components/header/cn.webp" alt="">
+                    </a>
+                </div>
                 <ul class="header__menu-list-mob">
-                    <li class="header__menu-li-mob"><a href="services.html">Услуги</a></li>
-                    <li class="header__menu-li-mob"><a href="index.html">Отзывы</a></li>
-                    <li class="header__menu-li-mob"><a href="partners.html">Партнёры</a></li>
-                    <li class="header__menu-li-mob"><a href="trends.html">Тренды</a></li>
+                    <li class="header__menu-li-mob"><a href="services.html" data-lang="header-li-1">Услуги</a></li>
+                    <li class="header__menu-li-mob"><a href="index.html" data-lang="header-li-2">Отзывы</a></li>
+                    <li class="header__menu-li-mob"><a href="partners.html" data-lang="header-li-3">Партнёры</a></li>
+                    <li class="header__menu-li-mob"><a href="trends.html" data-lang="header-li-4">Тренды</a></li>
                     <li class="header__menu-li-mob"><a href="index.html">Q&A</a></li>
                 </ul>
                 <ul class="header__menu-contacts-mob">
@@ -105,19 +121,19 @@
                         </a>
                     </li>
                 </ul>
-                <a href="#form" class="btn header__menu-btn-mob" data-mob-link>
+                <a href="#form" class="btn header__menu-btn-mob" data-mob-link data-lang="btn-contact">
                     Связаться
                 </a>
             </nav>
 
             <div class="menu-burger">
-                <img src="images/components/header/burger.svg" alt="">
+                <picture><source srcset="images/components/header/burger.svg" type="image/webp"><img src="images/components/header/burger.svg" alt=""></picture>
             </div>
 
         </div>
 
     </div> 
-</header> 
+</header>     
      
 
     <section class="trends">
@@ -126,8 +142,8 @@
 
                 <div class="container">   
                     <div class="section__title-block trends__title-block">
-                        <h1 class="section__title trends__title">Тренды</h1>
-                        <p class="section__subtitle trends__subtitle">Популярные товары из Китая</p>
+                        <h1 class="section__title trends__title" data-lang="trends-title">Тренды</h1>
+                        <p class="section__subtitle trends__subtitle" data-lang="trends-subtitle">Популярные товары из Китая</p>
                     </div>
                 </div>
 
@@ -259,8 +275,8 @@
         <div class="form__body">
 
             <div class="section__title-block second-title-block">
-                <h1 class="section__title second-title">Оставить заявку</h1>
-                <p class="section__subtitle second-subtitle">Мы ответим в течение 5 минут</p>
+                <h1 class="section__title second-title" data-lang="form-title">Оставить заявку</h1>
+                <p class="section__subtitle second-subtitle" data-lang="form-subtitle">Мы ответим в течение 5 минут</p>
             </div>
 
             <div class="form__content">
@@ -271,40 +287,40 @@
                         <div class="form__group">
                             <div class="form__label-block">
                                 <input type="text" class="form__input" placeholder="ФИО" id="input-1" name="name">
-                                <label for="input-1" class="form__label">имя</label>
+                                <label for="input-1" class="form__label" data-lang="form-name">имя</label>
                             </div>
                         </div>
                         <div class="form__group">
                             <div class="form__label-block">
                                 <input type="tel" class="form__input" placeholder="+7-900-185-18-18" id="input-2" name="phone">
-                                <label for="input-2" class="form__label">телефон</label>
+                                <label for="input-2" class="form__label" data-lang="form-tel">телефон</label>
                             </div>
                         </div>
                         <div class="form__group">
                             <div class="form__label-block">
                                 <input type="email" class="form__input" placeholder="example@gmail.com" id="input-3" name="email">
-                                <label for="input-3" class="form__label">почта</label>
+                                <label for="input-3" class="form__label" data-lang="form-mail">почта</label>
                             </div>
                         </div>
                         
-                        <input type="hidden" name="FROM" value="">
+                        <input type="hidden" name="FROM" value="ГЛАВНАЯ">
 
-                        <button class="btn form__btn"> 
+                        <button class="btn form__btn" data-lang="form-sending"> 
                             Отправить 
                         </button>
 
                         <div class="form-done">
                             <span>HELIOS</span>
                             <div class="form-done__text">
-                                <h3>Заявка отправлена!</h3>
-                                <p>Мы ответим вам в течение часа :)</p>
+                                <h3 data-lang="form-ended">Заявка отправлена!</h3>
+                                <p data-lang="form-eneded-time">Мы ответим вам в течение часа :)</p>
                             </div>
                         </div>
 
                     </form>
 
                     <div class="form__contacts">
-                        <h4>Связаться с нами другими способами:</h4>
+                        <h4 data-lang="form-socials">Связаться с нами другими способами:</h4>
                         <a href="tel:8-800-333-38-43">8-800-333-38-43</a>
                         <div class="form__socials">
                             <a href="https://t.me/+79151768885" class="dark-svg">
@@ -329,7 +345,7 @@
                 </div>
 
                 <div class="form__img">
-                    <img src="images/components/form/form-image.jpg" alt="">
+                    <picture><source srcset="images/components/form/form-image.webp" type="image/webp"><img src="images/components/form/form-image.jpg" alt=""></picture>
                 </div>
 
             </div>
@@ -383,17 +399,17 @@
                 <img src="images/components/partners-logo/balt.webp" alt="">
             </div>
             <div class="popup-main__company">
-                <h5>О компании:</h5>
+                <h5 data-lang="about-company">О компании:</h5>
                 <p>Tools to help you schedule and earn on your own terms–customize exactly how and when clients can.</p>
             </div>
             <div class="popup-main__made">
-                <h5>Что для них сделали:</h5>
+                <h5 data-lang="was-made-company">Что для них сделали:</h5>
                 <p>Tools to help you schedule and earn on your own terms–customize exactly how and when clients
                     can.Tools to help you schedule and earn on your own terms–customize.</p>
             </div>
         </div>
         <div class="popup-main__connection">
-            <p>Вы можете связаться с ними, чтобы больше о нас узнать</p>
+            <p data-lang="company-connection">Вы можете связаться с ними, чтобы больше о нас узнать</p>
             <form action="" class="form__form-body" method="post" id="form">
                 <div class="form__group">
                     <div class="form__label-block">
@@ -486,27 +502,27 @@
         <div class="footer__bottom">
             <ul class="footer__contacts-list">
                 <li class="footer__li">
-                    <a href="services.html">
+                    <a href="services.html" data-lang="header-li-1">
                         Услуги
                     </a>
                 </li>
                 <li class="footer__li">
-                    <a href="partners.html">
+                    <a href="partners.html" data-lang="header-li-3">
                         Партнеры
                     </a>
                 </li>
                 <li class="footer__li">
-                    <a href="index.html">
+                    <a href="#feedback" data-lang="header-li-2">
                         Отзывы
                     </a>
                 </li>
                 <li class="footer__li">
-                    <a href="trends.html">
+                    <a href="trends.html" data-lang="header-li-4">
                         Тренды
                     </a>
                 </li>
                 <li class="footer__li">
-                    <a href="index.html">
+                    <a href="#qa">
                         Q&A
                     </a>
                 </li>
@@ -551,6 +567,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script src="js/fetch.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/languages/language.js" type="module"></script>
+    <script src="js/main.js" type="module"></script>
 </body>
 </html> 

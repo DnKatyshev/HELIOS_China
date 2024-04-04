@@ -110,7 +110,7 @@ section{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        column-gap: 36px;
+        column-gap: 20px;
     }
     &-list { 
         display: flex;
@@ -132,7 +132,7 @@ section{
     &-contacts {
         display: flex;
         align-items: center;
-        column-gap: 25px;
+        column-gap: 16px;
     }
     &-flags{
         display: flex;
@@ -147,8 +147,8 @@ section{
             cursor: pointer;
         }
         .language-active{
-            border: 1px solid #fff;
-            border-radius: 14px;
+            border: 1px solid #e1f0ff;
+            border-radius: 6px;
         }
     }
     &-btn {
@@ -166,7 +166,6 @@ section{
         display: none;
     }
     
-
 
     // Burger-Menu
     @media(max-width: 940px){
@@ -193,6 +192,10 @@ section{
         }
         .header__menu-nav-mob.active-menu {
            left: 0;
+        }
+
+        .header__menu-arrow{
+            margin-bottom: 32px;
         }
     
         .header__menu-list-mob{
@@ -247,7 +250,7 @@ section{
     color: #fff;
     background: 
         linear-gradient(0deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.30) 100%),
-        url('../../images/pages/index/layout/layout.jpg') center/cover no-repeat;
+        url('../../images/pages/index/layout/layout2.webp') center/cover no-repeat;
 }
 .layout__text {
     display: flex;
@@ -304,6 +307,15 @@ section{
         background: #fff;
         border-radius: 14px;
     }
+
+@media (max-width: 540px){
+    .layout__slide-description {
+        flex-direction: column;
+        row-gap: 10px;
+        min-height: 90px;
+        padding: 10px 6px;
+    }
+}
     &-name {
         color: $DarkBlue;
         font-weight: 500;
@@ -311,7 +323,7 @@ section{
     &-btn {
        max-width: 110px;
        padding: 8px 12px;
-       font-size: 14px;
+       font-size: 13px;
        background: $DarkBlue;
        color: #fff;
     }
@@ -460,6 +472,7 @@ section{
         row-gap: 20px;
         padding: 25px;
         background: #fff8f8;
+        min-height: 360px;
         border-radius: 22px;
         cursor: pointer;
         transition: all .3s ease;

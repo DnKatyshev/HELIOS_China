@@ -122,7 +122,24 @@ section{
     &-contacts {
         display: flex;
         align-items: center;
-        column-gap: 18px;
+        column-gap: 25px;
+    }
+    &-flags{
+        display: flex;
+        align-items: center;
+        column-gap: 6px;
+        img{
+            width: 100%;
+            height: 16px;
+        }
+        .flag-btn{
+            padding: 6px;
+            cursor: pointer;
+        }
+        .language-active{
+            border: 1px solid rgba(3, 0, 41, .7);
+            border-radius: 6px;
+        }
     }
     &-btn {
         max-width: 125px;
@@ -177,6 +194,10 @@ section{
         .header__menu-li-mob a{
             color: $DarkBlue;
             font-size: 18px;
+        }
+        
+        .header__menu-arrow{
+            margin-bottom: 32px;
         }
     
         .header__menu-contacts-mob {

@@ -9,12 +9,20 @@
             </a>
             <nav class="header__menu-nav">
                 <ul class="header__menu-list">
-                    <li class="header__menu-li"><a href="services.html">Услуги</a></li>
-                    <li class="header__menu-li"><a href="index.html">Отзывы</a></li>
-                    <li class="header__menu-li"><a href="partners.html">Партнёры</a></li>
-                    <li class="header__menu-li"><a href="trends.html">Тренды</a></li>
+                    <li class="header__menu-li"><a href="services.html" data-lang="header-li-1">Услуги</a></li>
+                    <li class="header__menu-li"><a href="index.html" data-lang="header-li-2">Отзывы</a></li>
+                    <li class="header__menu-li"><a href="partners.html" data-lang="header-li-3">Партнёры</a></li>
+                    <li class="header__menu-li"><a href="trends.html" data-lang="header-li-4">Тренды</a></li>
                     <li class="header__menu-li"><a href="index.html">Q&A</a></li>
                 </ul>
+                <div class="header__menu-flags">
+                    <a class="flag-btn" data-switch="ru">
+                        <img src="images/components/header/rus.webp" alt="">
+                    </a>
+                    <a class="flag-btn" data-switch="cn">
+                        <img src="images/components/header/cn.webp" alt="">
+                    </a>
+                </div>
                 <ul class="header__menu-contacts">
                     <li class="header__menu-li"><a href="tel:8-800-333-38-43">8-800-333-38-43</a></li>
                     <li class="header__menu-li">
@@ -40,7 +48,7 @@
                         </a>
                     </li>
                 </ul>  
-                <a href="" class="btn header__menu-btn popup-btn--form">
+                <a href="" class="btn header__menu-btn popup-btn--form" data-lang="btn-contact">
                     Связаться
                 </a>
             </nav>
@@ -49,13 +57,21 @@
 
             <nav class="header__menu-nav-mob">
                 <a href="" class="header__menu-arrow">
-                    <img src="images/pages/index/header/arrow.svg" alt="">
+                    <picture><source srcset="images/pages/index/header/arrow.svg" type="image/webp"><img src="images/pages/index/header/arrow.svg" alt=""></picture>
                 </a>
+                <div class="header__menu-flags">
+                    <a class="flag-btn" data-switch="ru">
+                        <img src="images/components/header/rus.webp" alt="">
+                    </a>
+                    <a class="flag-btn" data-switch="cn">
+                        <img src="images/components/header/cn.webp" alt="">
+                    </a>
+                </div>
                 <ul class="header__menu-list-mob">
-                    <li class="header__menu-li-mob"><a href="services.html">Услуги</a></li>
-                    <li class="header__menu-li-mob"><a href="index.html">Отзывы</a></li>
-                    <li class="header__menu-li-mob"><a href="partners.html">Партнёры</a></li>
-                    <li class="header__menu-li-mob"><a href="trends.html">Тренды</a></li>
+                    <li class="header__menu-li-mob"><a href="services.html" data-lang="header-li-1">Услуги</a></li>
+                    <li class="header__menu-li-mob"><a href="index.html" data-lang="header-li-2">Отзывы</a></li>
+                    <li class="header__menu-li-mob"><a href="partners.html" data-lang="header-li-3">Партнёры</a></li>
+                    <li class="header__menu-li-mob"><a href="trends.html" data-lang="header-li-4">Тренды</a></li>
                     <li class="header__menu-li-mob"><a href="index.html">Q&A</a></li>
                 </ul>
                 <ul class="header__menu-contacts-mob">
@@ -85,16 +101,16 @@
                         </a>
                     </li>
                 </ul>
-                <a href="#form" class="btn header__menu-btn-mob" data-mob-link>
+                <a href="#form" class="btn header__menu-btn-mob" data-mob-link data-lang="btn-contact">
                     Связаться
                 </a>
             </nav>
 
             <div class="menu-burger">
-                <img src="images/components/header/burger.svg" alt="">
+                <picture><source srcset="images/components/header/burger.svg" type="image/webp"><img src="images/components/header/burger.svg" alt=""></picture>
             </div>
 
         </div>
 
     </div> 
-</header>
+</header>    

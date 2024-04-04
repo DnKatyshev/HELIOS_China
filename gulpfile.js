@@ -32,7 +32,7 @@ import ttf2woff2 from 'gulp-ttf2woff2';
 
 export function images(){
     return gulp.src('app/images/**/*')
-    .pipe(changed('dist/images/**/*'))
+    .pipe(changed('app/images/**/*'))
     .pipe(webp())
  
     .pipe(gulp.src('app/images/**/*'))
@@ -66,7 +66,7 @@ export function style(){
     return gulp.src('app/scss/pages/*.scss')  
     .pipe(sourceMaps.init())
     .pipe(sass())  
-    .pipe(cleancss( {level: { 1: { specialComments: 0 } } }))
+    // .pipe(cleancss( {level: { 1: { specialComments: 0 } } }))
     .pipe(webcss())
     .pipe(sourceMaps.write('.'))
     .pipe(gulp.dest('dist/css/pages-style')) 
@@ -75,7 +75,7 @@ export function style2(){
     return gulp.src('app/scss/components/*.scss')  
     .pipe(sourceMaps.init())
     .pipe(sass())  
-    .pipe(cleancss( {level: { 1: { specialComments: 0 } } }))
+    // .pipe(cleancss( {level: { 1: { specialComments: 0 } } }))
     .pipe(webcss())
     .pipe(sourceMaps.write('.'))
     .pipe(gulp.dest('dist/css/components')) 
@@ -85,7 +85,7 @@ export function style2(){
 
 export function minjs(){
     return gulp.src('app/js/**/*.{js,json}')
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(gulp.dest('dist/js'))
 }
 

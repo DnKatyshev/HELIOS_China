@@ -1,4 +1,4 @@
-import {cards} from '/app/js/partners-cards/cards.js';
+import {cards} from '/js/partners-cards/cards.js';
 
 // GSAP-ANIMATION
 let tl = gsap.timeline()
@@ -174,8 +174,14 @@ popupButtons.forEach(function(button){
       
       const dataCard = this.dataset.card;
 
-      [popupTitle.textContent, popupDescr.textContent, popupWork.textContent, popupImg.src] = 
-      [cards[dataCard]["title"], cards[dataCard]["descr"], cards[dataCard]["work"], cards[dataCard]["img"]]
+      if(localStorage.getItem('language') == 'cn'){
+        [popupTitle.textContent, popupDescr.textContent, popupWork.textContent, popupImg.src] = 
+        [cards[dataCard]["title"], cards[dataCard]["descr_cn"], cards[dataCard]["work"], cards[dataCard]["img"]]
+      } else{
+        [popupTitle.textContent, popupDescr.textContent, popupWork.textContent, popupImg.src] = 
+        [cards[dataCard]["title"], cards[dataCard]["descr"], cards[dataCard]["work"], cards[dataCard]["img"]]
+      }
+
       
 
 
